@@ -1,0 +1,205 @@
+\documentclass[twoside]{report}
+\usepackage[utf8]{inputenc} % Danish chars
+
+%%%%% DATA %%%%%
+\def\TITLE{Multi Project}
+\def\SUBJECT{4 sprints}
+\def\GROUPNUMBER{sw607f14}
+\def\GROUPROOM{2.1.10}
+\def\SEMESTER{P6}
+
+\def\NUMBERAPPENDICES{X}
+
+% Tid/dato
+\def\STARTDATE{February 3rd, 2014}
+\def\ENDDATE{June 20th, 2014}
+\def\PERIOD{\STARTDATE\ - \ENDDATE}
+
+% Names
+\def\SUPERVISOR{Jinling Jiang}
+
+\def\NAMEONE{Johan L. Gregersen}
+\def\NAMETWO{Morten M. Jakobsen}
+\def\NAMETHREE{Casper H. Laustsen}
+\def\NAMEFOUR{Hamun Munikiki}
+
+
+\def\TPNAMESPACE{Benedikte Foldby Jakobsen kkkkkkkkkkkkk}
+%%%%% END OF DATA %%%%%
+
+\usepackage{float} % [H] place specifier
+\usepackage{chngpage} % Change margins per page
+\usepackage{anysize} % Margins
+\usepackage{lastpage} % Page numbering with last page
+\usepackage{setspace} % Sets space between lines
+\usepackage{fancyref} % "Fancy cross-referencing"
+\usepackage{fancyhdr} % Better headers/footers
+\usepackage{graphicx} % For graphics
+\usepackage{listings} % For code
+\usepackage[boxed, chapter]{algorithm} % Pseudocode
+\usepackage{algorithmic} % Pseudocode
+\usepackage{tabularx} %Tables
+\usepackage[numbib, nottoc, notlof]{tocbibind} % More stuff in toc
+%\usepackage{lscape}
+\usepackage{amsmath} % More math
+\usepackage{lscape}
+\usepackage{textcomp}	% Copyright symbol
+\usepackage{amssymb}
+\usepackage[
+	bookmarks		=	true,
+	pdftoolbar		=	true,
+	pdfmenubar		=	false,
+	pdffitwindow	=	false,
+	pdfnewwindow	=	true,
+	pagebackref		=	true,
+	colorlinks		=	true,
+	linkcolor		=	black,
+	linktoc			=	all,
+	citecolor		=	blue,
+%	filecolor		=	
+	urlcolor		=	red
+]{hyperref} % PDF settings
+
+\usepackage[colorinlistoftodos, prependcaption]{todonotes} % Notes
+\usepackage{tikz}
+\usetikzlibrary{matrix,chains,positioning,decorations.pathreplacing,arrows}
+
+\usepackage{bookmark} % ??
+\usepackage[Lenny]{fncychap} % Pretty chapters
+
+%TABLE WITH ROTATION
+\usepackage{multirow}
+\usepackage{rotating}
+
+%%%%% SETTINGS %%%%%
+% CODE SETTINGS
+\lstset{
+	language			=	Java,
+	basicstyle			=	\small,
+	keywordstyle		=	\color{blue},
+	showstringspaces	=	false,
+	backgroundcolor		=	\color{lightgray},
+	numbers				=	left,
+	numberstyle			=	\tiny\color{black},
+	stepnumber			=	1,
+	numbersep			=	5pt,
+	frame				=	single,
+	tabsize				=	2,
+	captionpos			=	b,
+	breaklines			=	true,
+	morekeywords		=	{ }
+}
+
+\algsetup{
+	indent			=		2em,
+	linenosize	=		\small
+}
+
+\linespread{1.1} % Space between lines
+
+% Margin sizes
+\marginsize{3cm}{5cm}{2.9cm}{2.9cm} % Margins
+\addtolength{\topmargin}{-1cm}
+\addtolength{\textheight}{2cm}
+\addtolength{\textwidth}{2.0cm}  
+\addtolength{\oddsidemargin}{7mm}
+\addtolength{\marginparwidth}{-1cm}
+\addtolength{\evensidemargin}{-2.3cm}
+
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0em}
+
+% Page layout
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\SUBJECT}
+\fancyhead[LO,RE]{Group \GROUPNUMBER}
+\fancyfoot[LE,RO]{Page \thepage \slash \pageref{LastPage}}
+\fancyfoot[C]{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancypagestyle{plain}{
+	\fancyhf{}
+	\fancyhead[C]{\SUBJECT}
+	\fancyhead[LO,RE]{Group \GROUPNUMBER}
+	\renewcommand{\headrulewidth}{0.4pt}
+	\renewcommand{\footrulewidth}{0.4pt}
+	\fancyfoot[LE,RO]{Page \thepage \slash \pageref{LastPage}}
+}
+
+\let\olditemize=\itemize
+\def\itemize{
+	\olditemize
+	\setlength{\itemsep}{-1ex}
+}
+\let\oldenumerate=\enumerate
+\def\enumerate{
+	\oldenumerate
+	\setlength{\itemsep}{-1ex}
+}
+
+\reversemarginpar
+
+\renewcommand{\contentsname}{Table of Contents} % toc Name
+\setcounter{tocdepth}{2} % How much to show in the toc?
+
+%%%%% COMMANDS %%%%%
+\def\INTBLANKPAGE{
+	\clearpage
+	\thispagestyle{empty}
+	\null
+	\vfill
+	\begin{center}
+		This page is intentionally left blank
+	\end{center}
+	\clearpage
+}
+
+\def\note#1{\todo[fancyline]{#1}}
+
+\newcommand{\fn}[1]{\footnote{#1}}
+\newcommand{\ct}[1]{\texttt{#1}}
+
+
+\newcommand{\set}[1]{\ensuremath{\{ #1 \}}}
+
+
+%%% TEST %%%
+\newcommand{\testsetup}[4]{
+	&	#1	&	#2	&	#3	&	#4	\\
+}
+\newcommand{\teststart}{
+	\begin{tabular}{|l|l|l|l|l|l|l|}\hline
+		Name	\testsetup{Type}{Color}{\# games}{Learned against}
+}
+\newcommand{\testend}{
+	\end{tabular}
+}
+
+\newcommand{\tabletesthstart}{
+	\begin{table}[H]
+	\center
+	\teststart
+}
+\newcommand{\tabletestend}[2]{
+	\testend
+	\caption{#1}
+	\label{#2}
+	\end{table}
+}
+
+\newcommand{\resultsetup}[4]{
+	&	#1	&	#2	&	#3	&	#4	\\
+}
+\newcommand{\tableresulthstart}{
+	\begin{table}[H]
+		\center
+		\begin{tabular}{|l|l|l|l|l|}\hline
+			White	\resultsetup{Black}{White wins}{Black wins}{Draws}
+}
+\newcommand{\tableresultend}[2]{
+		\end{tabular}
+	\caption{#1}
+	\label{#2}
+	\end{table}
+}
