@@ -1,7 +1,6 @@
 \subsection{Remaining Issues}
-\label{subsec:spr1_remainissues}
-One of the remaining issues was the home button issue (see ID 4). It worked, but another problem occurred from it. 
-When the user pressed the home button Sequence is closed and the process is killed. Although Sequence is killed, when opening the application again returns a failure, but when trying to open Sequence again, causes the application to open normally.
-This issue should maybe be revised to do something else than just kill the application.
-The launcher application ensures that when pressing the home button the person can choose to go to GIRAF or to the application panel in android.
-Although as stated by the previous students in their report, \citep{Zebra}, the guardian was confused about when pressing the home button and opening the Sequence application again causes to start from the previous state, rather than going to the main overview page of Sequence.
+The following is the remaining issues not completed within the timeframe for sprint 1.
+
+\#2: This was an issue that we did not look into, due to running out of time. The reason this particular issue has been pushed back in favor of others was both because it was not a high priority issue and because having pictograms in Sequence (See issue \#14) was a prerequisite. 
+
+\#4: According to the previous report on Zebra, \citep{Zebra} the home button caused an issue. After using the button, the guardian found it confusing when reopening Sequence, it resumed at the previous state of the application. It was preferred that the application should reopen as if it was just launched. This issue was looked into and an attempt to solve it was made by destroying the application when the home button was pressed. This however caused a new bug where Sequence would be destroyed after accessing PictoSearch from the application. The proposed solution was thus discarded.
