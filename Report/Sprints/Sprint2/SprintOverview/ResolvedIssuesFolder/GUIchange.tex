@@ -1,0 +1,70 @@
+\subsection{GUI change} \label{para:spr2_resolved_issues_GUI_change}
+
+THIS IS WHERE WE DESCRIBE THE USE OF THE GDIALOG CUSTOMIZABLE CLASS. \note{now we just do it}
+
+\begin{lstlisting}
+
+    public class MyDialog extends GDialog {
+
+        public MyDialog(Context context) {
+
+            super(context);
+
+            this.SetView(LayoutInflater.from(this.getContext()).inflate(R.layout.exit_sequence_dialog,null));
+
+            GButton saveChanges = (GButton) findViewById(R.id.save_changes);
+            GButton discardChanges = (GButton) findViewById(R.id.discard_changes);
+            GButton returntoEditing = (GButton) findViewById(R.id.return_to_editing);
+
+            TextView returnHeadline = (TextView) findViewById(R.id.return_sequence_headline);
+            TextView returnDiscription = (TextView) findViewById(R.id.return_sequence_discription);
+
+            saveChanges.setOnClickListener(new GButton.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+ //                     SequenceActivity.this.saveChanges();
+                }
+            });
+
+            discardChanges.setOnClickListener(new GButton.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
+
+            returntoEditing.setOnClickListener(new GButton.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    dismiss();
+                }
+            });
+        }
+    }
+
+\end{lstlisting}
+
+THIS IS WHERE WE DESCRIBE THE USE OF THE GDIALOG NON CUSTOMIZABLE CLASS GDIALOGMESSAGE. \note{now we just do it}
+
+\begin{lstlisting}
+
+    public void showReturnDialog(View v) {
+        GDialogMessage returnDialog = new GDialogMessage(v.getContext(),
+                R.drawable.ic_launcher,
+                "Afslut Sekvens",
+                "Du er ved at afslutte sekvensen",
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                    }
+                });
+
+
+        returnDialog.show();
+    }
+
+\end{lstlisting}
