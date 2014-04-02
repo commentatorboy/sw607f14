@@ -1,4 +1,4 @@
-##################################
+﻿##################################
 ##				##	
 ##	LATEX			##
 ##				##
@@ -202,3 +202,7 @@ Data/målte længder og udregnede længder.txt
 Jens og hamun ude på eventyur.grf
 Report/Report.pdf
 Report/Report.brf
+
+# _Compile batch fil
+Report/out/Report.pdf
+Report/out/Report.brf
