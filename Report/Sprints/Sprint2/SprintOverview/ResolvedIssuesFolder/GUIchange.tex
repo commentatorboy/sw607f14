@@ -1,12 +1,15 @@
-\subsection{GUI change} \label{para:spr2_resolved_issues_GUI_change}
+\paragraph{GUI change} \label{para:spr2_resolved_issues_GUI_change}
 
-THIS IS WHERE WE DESCRIBE THE USE OF THE GDIALOG CUSTOMIZABLE CLASS. \note{now we just do it}
 
-\begin{lstlisting}
+INSERT TABLES WITH IDs TO EACH OF THE ENTRIES IN THE  BACKLOG THAT DEALS WITH GUI. \note{now we just do it}
 
-    public class MyDialog extends GDialog {
+One of the biggest changes from sprint 1 is the entire UI is fitted to match the entire application. This means changing every single button and grid to the templates the GUI group provided. As there is a lot of GUI to change, we have chosen to just describe two examples. The first example of the completely customizable dialog box is shown in listing \ref{lst:GDialog}. We use this several times throughout the application, we use it when editing sequences as a guardian. The example shown is when the guardian tries to exit editing a sequence without having saved. Each button is linked to a XML file determining where the button is displayed in the layout as well as what the headline and description says.
 
-        public MyDialog(Context context) {
+\begin{lstlisting} [caption={Customizable Dialogbox}, label={lst:GDialog}]
+
+    public class backDialog extends GDialog {
+
+        public backDialog(Context context) {
 
             super(context);
 
@@ -14,16 +17,14 @@ THIS IS WHERE WE DESCRIBE THE USE OF THE GDIALOG CUSTOMIZABLE CLASS. \note{now w
 
             GButton saveChanges = (GButton) findViewById(R.id.save_changes);
             GButton discardChanges = (GButton) findViewById(R.id.discard_changes);
-            GButton returntoEditing = (GButton) findViewById(R.id.return_to_editing);
+            GButton returntoEditting = (GButton) findViewById(R.id.return_to_editing);
 
-            TextView returnHeadline = (TextView) findViewById(R.id.return_sequence_headline);
-            TextView returnDiscription = (TextView) findViewById(R.id.return_sequence_discription);
 
             saveChanges.setOnClickListener(new GButton.OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
- //                     SequenceActivity.this.saveChanges();
+                    SequenceActivity.this.saveChanges();
                 }
             });
 
@@ -35,7 +36,7 @@ THIS IS WHERE WE DESCRIBE THE USE OF THE GDIALOG CUSTOMIZABLE CLASS. \note{now w
                 }
             });
 
-            returntoEditing.setOnClickListener(new GButton.OnClickListener() {
+            returntoEditting.setOnClickListener(new GButton.OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
@@ -43,28 +44,24 @@ THIS IS WHERE WE DESCRIBE THE USE OF THE GDIALOG CUSTOMIZABLE CLASS. \note{now w
                 }
             });
         }
-    }
 
+    }
 \end{lstlisting}
 
-THIS IS WHERE WE DESCRIBE THE USE OF THE GDIALOG NON CUSTOMIZABLE CLASS GDIALOGMESSAGE. \note{now we just do it}
+The GUI group also provided a list of simple templates e.g. a 2 button dialogmessage. The example shown in \ref{GDialogmessage} is the delete button shown in the overview. The constructor needs the context, an image, a headlline, a description and a functionality for one of the buttons. The second button added in the dialog box is a button that closes the dialog box and returns to the previous state.
 
-\begin{lstlisting}
+\begin{lstlisting}  [caption={GDialogmessage}, label={lst:GDialogmessage}]
 
-    public void showReturnDialog(View v) {
-        GDialogMessage returnDialog = new GDialogMessage(v.getContext(),
-                R.drawable.ic_launcher,
-                "Afslut Sekvens",
-                "Du er ved at afslutte sekvensen",
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        finish();
-                    }
-                });
-
-
-        returnDialog.show();
-    }
+    public void deleteSequenceDialog (View v) {
+        GDialogMessage deleteSequence = new GDialogMessage(v.getContext(),
+            R.drawable.ic_launcher,
+            "Slet Sekvens",
+            "Du er ved at slette sekvensen, er du sikker paa du vil det?",
+            new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+			deleteSequence();
+                }
+            });
 
 \end{lstlisting}
