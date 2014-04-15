@@ -204,5 +204,4 @@ Report/Report.pdf
 Report/Report.brf
 
 # _Compile batch fil
-Report/out/Report.pdf
-Report/out/Report.brf
+Report/out/*.*
