@@ -9,7 +9,7 @@
 \label{tab:spr2_GUIchange}
 \end{longtable}
 
-One of the biggest changes from sprint 1 is the entire UI is fitted to match the entire application. This means changing every single button and grid to the templates the GUI group provided. As there is a lot of GUI to change, we have chosen to just describe two examples. The first example of the completely customizable dialog box is shown in listing \ref{lst:GDialog}. We use this several times throughout the application, we use it when editing sequences as a guardian. The example shown is when the guardian tries to exit editing a sequence without having saved. Each button is linked to a XML file determining where the button is displayed in the layout as well as what the headline and description says.
+One of the biggest changes from sprint 1 is the entire UI is fitted to match the entire application. This means changing every single button and grid to the templates the GUI group provided. As there is a lot of GUI to change, we have chosen to just describe two examples. The first example of the completely customizable dialog box is shown in listing \ref{lst:GDialog}. We use this several times throughout the application, we use it when editing sequences as a guardian. The example shown is when the guardian tries to exit editing a sequence without having saved. Each button is linked to a XML file determining where the button is displayed in the layout as well as what the headline and description says. \note{ADD PICTURES}
 
 \begin{lstlisting} [caption={Customizable Dialogbox}, label={lst:GDialog}]
 
@@ -71,3 +71,5 @@ The GUI group also provided a list of simple templates e.g. a 2 button dialogmes
             });
 
 \end{lstlisting}
+
+The more notable change is that it now is possible to add sequences and choice into existing sequences (see table \ref{tab:spr2_nested}). We created a new dialog box which offered the possible to choose between adding sequences, pictograms or choices. 
