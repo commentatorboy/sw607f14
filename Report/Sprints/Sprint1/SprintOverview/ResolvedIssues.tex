@@ -8,7 +8,7 @@ At the end of sprint 1, the following issues from the sprint backlog were resolv
 \caption{Issue ID 6}
 \label{tab:spr1_issue6}
 \end{longtable}
-This was a trivial task of changing the application name in the AndroidManifest of the project.
+This was a trivial task of changing the application name in the AndroidManifest of the project. The project is as mentioned now called `Sekvens' as opposed to the former name `Zebra'.
 
 \begin{longtable} { | c | p{12cm} | c | } 
 \hline
@@ -17,7 +17,20 @@ This was a trivial task of changing the application name in the AndroidManifest 
 \caption{Issue ID 10}
 \label{tab:spr1_issue10}
 \end{longtable}
-Changing the name of a sequence was previously done by clicking on the title text, but it was not obvious that it was in fact editable. The issue was solved by adding a button which programatically places the cursor in the textfield and popping up the virtual keyboard.
+Changing the name of a sequence was previously done by clicking on the title text, but it was not obvious that it was in fact editable (for reference see picture \ref{fig:Old_editName}).  The issue was first solved by adding a button which programatically places the cursor in the textfield and popping up the virtual keyboard. We felt like this cluttered the entire UI a little bit with too many buttons, so we decided to figure out another way to make it more apparent. We chose to go with a button-less approach, where we put a border on the title, and recoloring the background to white. The thought behind this was the user most likely associate black text on white background as being editable, as the most popular text editing programs today use that standard (the result of the solution is displayed at figure \ref{fig:New_editName}). \note{change picture to the real deal}
+
+\begin{figure} [h!]
+\centering
+\begin{minipage}{.7\textwidth}
+\centering
+\includegraphics{Pics/Sprint1/Gammelt/change_sequence_name}
+\caption{A picture of the editable name before}
+\label{fig:Old_editName}
+\includegraphics{Pics/Sprint1/Gammelt/change_sequence_name}
+\caption{A picture of the editable name after}
+\label{fig:New_editName}
+\end{minipage}\hfill
+\end{figure}
 
 \begin{longtable} { | c | p{12cm} | c | } 
 \hline
@@ -55,7 +68,7 @@ This issue was looked into but turned out to be difficult to solve. However, whi
 \caption{Issue ID 19}
 \label{tab:spr1_issue19}
 \end{longtable}
-Debugging why the application was installed twice upon compiling was another hard task. (\#19) This was one of the first issues we attempted to solve, and lack of knowledge about Android made this simple fix a time-wise underestimated task. We did not immediately realize that the issue was not within the Sequence project, but one of its dependencies. Furthermore, another group was working simultaneously on the same issue, which was not discovered in the process. This happened because the time was spent trying to understand the issue. At that point it was a simple fix, and it was not before then it could be discovered that it was the same issue the other group was trying to solve.
+Debugging why the application was installed twice upon compiling was another hard task. This was one of the first issues we attempted to solve, and lack of knowledge about Android made this simple fix a time-wise underestimated task. We did not immediately realize that the issue was not within the Sequence project, but one of its dependencies. Furthermore, another group was working simultaneously on the same issue, which was not discovered in the process. This happened because the time was spent trying to understand the issue. At that point it was a simple fix, and it was not before then it could be discovered that it was the same issue the other group was trying to solve.
 
 \begin{longtable} { | c | p{12cm} | c | } 
 \hline
@@ -64,4 +77,10 @@ Debugging why the application was installed twice upon compiling was another har
 \caption{Issue ID 20}
 \label{tab:spr1_issue20}
 \end{longtable}
-When displaying a created sequence it was not apparent how the user was able to return to the overview. This was solved by adding a button to allow the user to return by pressing the button.
+When displaying a created sequence it was not apparent how the user was able to return to the overview. The former way was pressing the `back' on the android tablet itself, but it seemed rather unintuitive as you were supposed to go to the Overview, and not back to editing the sequence. This was solved by adding a button to allow the user to return by pressing it - and furthermore overriding the hardware button to return to Overivew (A picture of the button is displayed at figure \ref{fig:Old_backButton}).
+\begin{figure} [h!]
+\centering
+\includegraphics{Pics/Sprint1/Gammelt/back_button}
+\caption{A picture of a simple button in `Sekvens'}
+\label{fig:Old_backButton}
+\end{figure} 
