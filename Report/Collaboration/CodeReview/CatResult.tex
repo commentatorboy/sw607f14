@@ -1,0 +1,20 @@
+\subsection{Cat: applying feedback from `Sekvens'}\label{subsec:collab_catresult}
+Several changes were made to the class \ct{MainActivity} as a result of the feedback from sw607f14.
+
+\paragraph{Adapters:}
+In several places we created and set new adapters to update the GUI. This was changed to use the \ct{notifyDataSetChanged} method instead. In some places however, this did not work, and we were thus forced to set the adapters again.
+
+\paragraph{Controllers:}
+Instead of instantiating our own instances of the necessary controllers, we switched to use the \ct{Helper} class from Oasis. This made some lines a bit longer, but was otherwise worth it. In the process, we also removed all usage of \ct{CategoryLib}, although it was not removed as neither a submodule or from git.
+
+\paragraph{Dialogs:}
+Instead of calling \ct{cancel} on dialogs when they were closed, we now call \texttt{dismiss}.
+
+\paragraph{\ct{onPause} method:}
+As the \ct{onPause} method was unneeded, it was removed. It had been used before when Cat was using XML files to store its data, but only the code handling this had been removed.
+
+\paragraph{Contrived complexity and complex conditionals:}
+As was noted, we had some cases of complex conditionals. The \ct{OnActivityResult} method was the worst in this. Before refactoring the method, it consisted of several if-statements (some of which made a ``backwards'' check, e.g.\ \ct{if (isIcon != true) \{ \ldots{} \}}). After refactoring, the method contained a switch statement, with four cases, which is much easier to read.
+
+\paragraph{Rejected suggestions:}
+Other suggestions for improving the code was rejected simply due to a lack of time.
