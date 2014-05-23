@@ -4,8 +4,8 @@ Several changes were made to the class \ct{MainActivity} as a result of the feed
 \paragraph{Adapters:}
 In several places we created and set new adapters to update the GUI. This was changed to use the \ct{notifyDataSetChanged} method instead. In some places however, this did not work, and we were thus forced to set the adapters again.
 
-\paragraph{Controllers:}
-Instead of instantiating our own instances of the necessary controllers, we switched to use the \ct{Helper} class from Oasis. This made some lines a bit longer, but was otherwise worth it. In the process, we also removed all usage of \ct{CategoryLib}, although it was not removed as neither a submodule or from git.
+\paragraph{Controllers}
+Instead of instantiating our own instances of the necessary controllers, we switched to use the \ct{Helper} class from Oasis. This made some lines a bit longer, but was otherwise worth it. In the process, we also removed all usage of CategoryLib in \ct{MainActivity}.
 
 \paragraph{Dialogs:}
 Instead of calling \ct{cancel} on dialogs when they were closed, we now call \texttt{dismiss}.
