@@ -1,1 +1,23 @@
 \section{Design Patterns}\label{spr1_design_patterns}
+Design patterns, maybe better known as best practices is "a general repeatable solution to a commonly occurring problem in software design." \cite{DesignPatterns} Having good design patterns can speed up development and in general help readability.
+Although there was no obvious patterns in the initial code of Sekvens, it was decided to attempt following a few patters anyway. Having a messy codebase does not justify creating more mess.
+The challenge of deciding on relevant design patterns was the fact that at the time, it was not entirely known what the development would consist of. 
+The agreed upon design patterns are listed as follows:
+
+\paragraph{Object Pool}
+Whenever possible, objects should be re-used rather than creating new instances. This can save some potentially expensive operations.
+
+\paragraph{Singleton}
+Activities should be always be singleton (Single instance), as it could be confusing for the customers to have more than one instance of these classes.
+
+\paragraph{Private class data}
+Classes should generally be hidden and not generally accessible directly. This means that under normal circumstances, variables and methods should be private. While some methods often are needed to be public, class variables should always be private and only manipulated using a get/set method.
+
+\paragraph{Observer}
+Since Sekvens consisted of lists of sequences and children we want to make sure that there is a way to update these automatically.
+
+\paragraph{State}
+Sekvens was entirely split up into two major states: Child and Guardian mode. Allowing certain classes to change behavior depending on state was a must.
+
+\paragraph{Template method}
+Whenever something can be broken into a meaningful and readable subcomponent, this should usually be done. This helps give access to code re-usability and easier management of components.
