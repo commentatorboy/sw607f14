@@ -5,3 +5,19 @@
 \caption{Issue ID 52}
 \label{tab:spr3_SVnohalfpictograms}
 \end{longtable}
+
+This issue comes from the answer given by the requirements group in appendix \ref{app:reqanswer}, as an answer to the questions stated in appendix \ref{app:reqquestion}. It may be difficult for some children to see half pictograms, because they are unable to handle changes or something they do not understand. 
+
+We decided to solve this issue by using a snap-effect. This snap-effect was to be made as an extension to the already existing android ScrollView and HorizontalScrollView. We collaborated with the GIRAF\_Component group, see section \ref{collaborationSnapper}, because this functionality might be useful for the entire GIRAF project. As can be seen in \ref{collaborationSnapper}, we made a formal request for the functionality.
+
+The solution to this issue looks as follows for HorizontalScrollView:
+\begin{lstlisting} [caption={Snap-effect for HorizontalScrollView}, label={lst:snapHSV}]
+import dk.aau.cs.giraf.gui.GHorizontalScrollViewSnapper;
+public class HorizontallyScroll extends GHorizontalScrollViewSnapper
+\end{lstlisting}
+
+And the solution looks as follows for ScrollView, which is the equivalent for vertical scrolling:
+\begin{lstlisting} [caption={Snap-effect for ScrollView}, label={lst:snapVSV}]
+import dk.aau.cs.giraf.gui.GVerticalScrollViewSnapper;
+public class VerticallyScroll extends GVerticalScrollViewSnapper
+\end{lstlisting}
