@@ -1,0 +1,13 @@
+\begin{longtable} { | c | p{12cm} | c | } 
+\hline
+	ID 	&	Issues	&		 Es. hours \\\hline
+	1	&	Syncronization with the Database	&	32 hours	\\\hline
+\caption{Issue ID 1}
+\label{tab:spr4_syncwithdatabase}
+\end{longtable}
+
+This issue was the first task to make it into the product backlog for Sekvens. It was iced in the first sprint as the database was not ready at that point. At the end of sprint 3, OasisLib finished creating the models and most of the database functionality needed by Sekvens. In the beginning of sprint 4, Sekvens was then updated to reflect this change. Some of the changes has their own specific tasks.
+
+This task covers updating all models to match the ones created by OasisLib. Specifically, Sekvens had its own representation of the classes Child, Sequence and Pictograms which were used throughout the application. Rather than reworking these to match the database, it was decided to completely remove them and use the OasisLib versions directly. This also meant updating every action taken on instances of these classes to match the possible interactions on the OasisLib versions.
+
+Sekvens previously had its own way of storing data with its own implementation, effectively isolating it from any common database. This code was completely removed as it was no longer needed.
