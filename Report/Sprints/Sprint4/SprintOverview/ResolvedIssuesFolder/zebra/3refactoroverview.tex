@@ -1,0 +1,17 @@
+\begin{longtable} { | c | p{12cm} | c | } 
+\hline
+	ID 	&	Issues	&		 Es. hours \\\hline
+	3	&	Refactor overview	&	32 hours	\\\hline
+\caption{Issue ID 3}
+\label{tab:spr4_refactoroverview}
+\end{longtable}
+
+Although some refactoring was done during the first sprint, MainActivity and SequenceActivity was originally messy. Having altered the code and added new features made it even worse, since it was coded on top of the mess. Essentially the code was structured poorly; methods grew large, code was duplicated and the code was full of leftovers from both this and the previous semester. To fix this, both activities had a full makeover.
+
+One of the worst cases was the \ct{onCreate} methods from both activities. These are the entry points of the activities. Even after reworking the code as much as possible, onCreate was a few hundred lines of code in both activities. At the end of the refactoring, they were boiled down into smaller methods describing exactly what happens when the activity is launched. This made the code feel cleaner, and it became easier to work with. \note{insert example of before/after}
+
+Along with splitting the code into relevant methods, a few cases of gathering code also happened. For example in SequenceActivity, the creation of buttons were split; Some were created and handled directly in \ct{onCreate} while some had a method created for them. These were gathered into one method called \ct{setupButtons} which handled everything related to buttons. Another example was \ct{updateSequences} and \ct{loadSequences} which functionality overlapped to a degree where they were just put together.
+
+The refactor also included creating proper comments for the code. At the beginning of the semester there was very few comments in the main activities. Since the code was already messy, this made it hard to figure out what was going on. In spite of the refactoring, it was decided to make sure that everything was well-explained anyway. It would have been a good idea to do this to the entire code-base, but due to a lack of time, this was not possible.
+
+Lastly, variables and method names were renamed to make them more intuitive and reflect exactly what happened within them. This was especially relevant due to the refactoring which slightly changed the functionality of some methods.
