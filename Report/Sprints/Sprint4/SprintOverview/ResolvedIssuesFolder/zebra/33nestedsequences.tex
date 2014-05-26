@@ -1,0 +1,10 @@
+\begin{longtable} { | c | p{12cm} | c | } 
+\hline
+	ID 	&	Issues	&		 Es. hours \\\hline
+	33	&	Nested Sequences	&	64 hours	\\\hline
+\caption{Issue ID 1}
+\label{tab:spr4_nestedSequence}
+\end{longtable}
+
+This is a reopened issue from sprint 2, and is described at table \ref{tab:spr2_nested}. As mentioned in the referenced section database synchronization was not completely implemented, so the time spent on this assignment at this sprint is refactoring it to save it. The \ct{sequence} model given by OasisLib had the list of frames, and these frames could have an int called \ct{nestedSequence}. This made it possible to easily use \ct{Frame} as the link between the sequences.
+This also means that it is possible to nest sequences forever, and even circle nestings. Furthermore it is possible to alter/delete sequences nested in other sequences -meaning you indirectly alter the main sequence.
