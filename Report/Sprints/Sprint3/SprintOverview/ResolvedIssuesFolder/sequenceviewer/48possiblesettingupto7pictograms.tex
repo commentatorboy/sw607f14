@@ -5,3 +5,13 @@
 \caption{Issue ID 48}
 \label{tab:spr3_SVsettingsupto7pictograms}
 \end{longtable}
+
+This issue involves the previous issue with dynamic show. Because the dynamic show has the desired variability, there has to be a setting that tells Sequenceviewer how many pictograms to display. This is done by getting an intent from the application calling sequenceviewer, with the desired number of visible pictograms. This can be seen, among other intents, in listing \ref{lst:svIntents}.
+
+\begin{lstlisting} [caption={Intent from the calling application}, label={lst:svIntents}]
+            //intent fra caller-app (Parrot/Zebra/Tortoise)
+            sequenceId = extras.getInt("sequenceId");
+            landscapeMode = extras.getBoolean("landscapeMode");
+            numberOfVisibiblePictograms = extras.getInt("visiblePictogramCount");
+            type = extras.getString("callerType");
+\end{lstlisting}

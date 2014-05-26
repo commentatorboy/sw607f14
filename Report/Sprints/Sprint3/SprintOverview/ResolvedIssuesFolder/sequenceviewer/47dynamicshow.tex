@@ -69,7 +69,7 @@ Next thing is to create a view in the scrollview for each pictogram in the seque
 
 Now the pictogram is added to the PictogramView. PictogramView is a class we took from the Sequence-project, which makes nice rounded edges on the pictogram. Then, the PictogramView is added to the before mentioned LinearLayout called mainLayout, that contain all the pictograms to display.
 
-The last thing we do, is to scale the layout-parameters of the scrollview and mainLayout. We define the width as: \ct{pictogramToDisplay.getWidth()* numberOfVisibiblePictograms}, and we define the height as: \ct{RelativeLayout.LayoutParams.MATCH$\_$PARENT}. The pictogramToDisplay is a regular pictogram that is scaled the same way as those in a sequence, which we use to get a pictogram width. We define these layout-parameters for the scrollview and the mainLayout, and then we center everything in the mainLayout by calling: \ct{mainLayout.setGravity(Gravity.CENTER)}, see listing \ref{addPictogram}.
+The last thing we do, is to scale the layout-parameters of the scrollview and mainLayout. We define the width as: \ct{pictogramToDisplay.getWidth()* numberOfVisibiblePictograms}, and we define the height as: \ct{RelativeLayout.LayoutParams.MATCH$\_$PARENT}. The pictogramToDisplay is a regular pictogram that is scaled the same way as those in a sequence, which we use to get a pictogram width. We define these layout-parameters for the scrollview and the mainLayout, and then we center everything in the mainLayout by calling: \ct{mainLayout.setGravity(Gravity.CENTER)}, see listing \ref{lst:addPictogram}.
 
 \begin{lstlisting} [caption={Adding the scaled pictogram to the PictogramView}, label={lst:addPictogram}]
 	limiter = Math.min(getWidth() / numberOfVisibiblePictograms, getHeight());
