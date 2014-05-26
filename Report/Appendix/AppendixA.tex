@@ -1,2 +1,120 @@
-\chapter{A}\label{app:reqquestion}
-\section{A}
+\chapter{Product Backlogs}\label{app:productbacklog}
+\section{Sprint 1 - Product Backlog}
+\begin{longtable} { | c | c | p{5cm} | p{5cm} | c | } 
+\hline
+	ID 	&	Iced	&	Issues	&	Description		&	 Es. hours \\\hline
+	1	& 	x	&	Syncronization with the Database		& 	Work together with the Database group to correctly link Sequence with the database - making extracting and saving images easier.	&	32 hours	\\\hline
+	2	& 	x	&	Updating a picture in sequence -$>$; no update in overview	&	When opdating a picture in sequence, the picture is not shown in the overview.	&	8 hours	\\\hline
+	3	& 		&	Cancel and replace action function	&	Being able to mark a pictogram cancelled. Futhermore being able to replace pictograms in a sequence.	&	12 hours \\\hline
+	4	& 		&	Home button pauses sequence -$>$ should destroy	 &	When pressing the home button on the tablet, it should destroy the application, and not pause it. For example it would be confusing, to open from paused state, instead of opening into the overview.	&	8 hours.	\\\hline
+	5	& 		&	Copying Sequences	&	Being able to copy sequences to other children incase of similar activities.	&	16 hours \\\hline
+	6	& 		&	Changing application name	&	Change the name from Zebra to something else.	&	1 hour	\\\hline
+	7	& 		&	Marked pictogram not highlighted		&	When the pictogram is clicked it does not highlight.	&	8 hours 	\\\hline
+	8	& 		&	Child mode needs to be more intuitive		&	Child mode relies on scrolling right now - we need to make it more intutive e.g. marked activities/pictograms as done. Overall the flow of child mode needs to be reworked.	&	32 hours	\\\hline
+	9	& 		&	Sequence does not look clickable		&	It is hard to see that you can click a sequence and choose to "open" it.	&	16 hours	\\\hline
+	10	& 		&	Changing a sequence name is not intuitive	&	When naming a sequence it is hard to see that you can click on the "space" to name it.	&	8 hours	\\\hline
+	11	& 		&	Analyzing TODOs in code	&	The TODO's are located in: Child (class), MainActivity and SequenceViewGroup - Note there can be several TODO's per file.		&	16 hours	\\\hline
+	12	& 		&	Add sequence button placement is not intuitive	&	The "+" sign is wrongly placed.	&	16 hours 	\\\hline
+	13	& 		&	Resizing delete buttons on pictograms	&	The size of the deletebutton have to scale proportionally with the width of the PictogramView.	&	4 hours	\\\hline
+	14	& 	x	&	Import temporary pictures into Sequence	&	Right now, no pictures are visible in the program right now.	&	4 hours	\\\hline
+	15	& 		&	Original drag location flickers when rearranging	&	When dragging the location dragged from flickers when the animation is done. Comment from last semester: Seems to be depend on hardware. The old galaxy tab does not have this problem. Also seems to be worsened by rounded image corners.	&	32 hours 	\\\hline
+	16	& 		&	It is possible to make identical sequences for the same child	&	Should be fixed, maybe as a check vs name and order of pictograms.	&	8 hours	\\\hline
+	17	& 	x	&	Solve TODO in SequenceViewGroup - Can child be bigger than parent?	&	It is currently unknown whether a child can be bigger than the parent space allowed. Blocked because no images are available yet.	&	2 hours	\\\hline
+	18	& 		&	Child selected upon opening the program is not highlighted	&	Child selected upon opening the program is not highlighted - starts at the first child of the list but it is not highlighted.	&	2 hours	\\\hline
+	19	& 	x	&	Zebra is installed with two app-icons	&	When installing the zebra-application, two icons are created. This is a launcher dependency issue.	&	16 hours\\\hline
+	20	& 		&	When a sequences is created it should have a return to overview button	&	When a sequences is created it should have a return to overview button, right now it's still in the sequence view.	&	8 hours\\\hline
+\caption{This is a list of the issues we had in our product backlog going into sprint 1}
+\label{tab:spr1_prodblog}
+\end{longtable}
+
+\section{Sprint 2 - Product Backlog}
+\begin{longtable} { | c | c | p{5cm} | p{5cm} | c | } 
+\hline
+	ID 	&	Iced	&	Issues	&	Description		&	 Es. hours \\\hline
+	21	& 	 	&	View-mode created	& 	Blur pictiures out of focus. Only full pictures(no half/auto adjust). Marker-choice: arrow or highlight, locked or dynamic position of marker. Possible settings for up to 7 pictograms.	&	128 hours	\\\hline
+	22	& 	x	&	Portrait mode	& 	The sequences should be viewable in portrait mode.	&	32 hours	\\\hline
+	23	& 	 	&	SequenceGrid needs to be dynamic	& 	Right now, SequenceGrid only allows 4 pictograms in the Grid.	&	8 hours	\\\hline
+	24	& 	 	&	Delete sequences	& 	Delete sequences requires database syncronization, with the LocalDB.	&	2 hours	\\\hline
+	25	& 	x	&	Fix ADD/SAVE/BACK button in SequenceActivity	& 	Currently blocked because it is not possible to save sequences (Missing database functionality).	&	4 hours	\\\hline
+	26	& 	 	&	Change all buttons	& 	The new GUI buttons are available in the wiki for GUI.	&	8 hours	\\\hline
+	27	& 	 	&	Change GUI of Viewgroups	& 	The new GUI Viewgroups are available in the wiki for GUI.	&	16 hours	\\\hline
+	28	& 	 	&	Remove the Childlist	& 	Update and adapt to context, because child is sent from Launcher.	&	32 hours	\\\hline
+	29	& 	 	&	Update to Oasis	& 	Update to the new database.	&	4 hours \\\hline
+	30  & 	 	&	Refactor overview	& 	Create BaseOverview. Create GuardianOverview.	&	32 hours	\\\hline
+	31  & 	 	&	Rework sequenceTitle box to look editable	& 	If we can make it look clickable we can remove the button.	&	4 hours	\\\hline
+	32  & 	 	&	Display some temporary sequences in overview	& 	Since there is no database for sequences yet, we need to be able to display some temporary ones for development purposes	&	4 hours	\\\hline
+	33	&	& 	Nested Sequences	&	There is a need for nested sequences, similar to daily scheduel (self-explanatory)	& 	64 hours   \\\hline
+	34	&	&	Choices in Sequences		&	Implement sequences so that they can contain the option to make choices.	& 	16 hours  \\\hline
+	35	&	&	After adding pictograms to a sequence it should not go to the "sequenceActivity", it should go to "MainActivity"		&	After making a sequence, the application should load the overview, instead of loading the sequence in SequenceActivity.	& 	8 hours  \\\hline
+\caption{This is a list of the issues we had in our product backlog going into sprint 2}
+\label{tab:spr2_prodblog}
+\end{longtable}
+
+\section{Sprint 3 - Product Backlogs}
+\begin{longtable} { | c | c | p{5cm} | p{5cm} | c | } 
+\hline
+	ID 	&	Iced	&	Issues	&	Description		&	 Es. hours \\\hline
+	36	& 	 	&	Create snap in SequenceActivity		& 	When you scroll, it should snap back to only showing full pictograms only	 & 4 hours \\\hline
+	37	& 	 	&	Create snap in SequenceGrid		& 	When you scroll, it should snap back to only showing full pictograms only.	 & 4 hours \\\hline
+	38	&		 &	Sequence placeholder 	 &		Create a pretty placeholder (and add number of pictograms) Linearlayout: imageview + textview			 &	2 hours\\\hline
+	39	&		 &	Choice placeholder		 &		Add a simple choice placeholder (write how many pictograms are in the choice) Linearlayout: imageview + textview			 &	2 hours \\\hline
+	40	&		& 	Create exit button for Sequence	 &		Currently not possible to exit application without using "back" button	 &	 1 hour		\\\hline
+	41	&		 &	Refactor overview		 &		Refactoring the entire MainActivity and SequenceActivity	 &	32 hours \\\hline
+	42	&		 &	Add preview Button		 &		Add a button calling sequenceviewer with the sequence we're editing		 & 1 hour	\\\hline
+	43	&		 &	Remove edit sequence name	 &	As the name suggest, remove the button as it clutters the UI		 &	0.5 hours \\\hline
+	44	&		 & 	Clean up submodules  &		Remove submodules we don't rely on anymore	 &	1 hour\\\hline
+	45	&		 &	Make the project Jenkins compatible		 &		Make sure Jenkins compiles correctly with Sekvens			 &	2 hours \\\hline
+	46	&		 &	improve user handling 		 &		Create dialogboxes to guide the user through the application		 &	4 hours \\\hline
+\caption{This is a list of the issues we had in our product backlog regarding sekvens going into sprint 3}
+\label{tab:spr3_prodblog}
+\end{longtable}
+
+\begin{longtable} { | c | c | p{5cm} | p{5cm} | c | } 
+\hline
+	47	&		 &	Sequenceviewer: Dynamic show	 &		It should be able to set a setting in Sekvens/Livshistorier/Parrot that decides how many pictograms should be shown at a time - the functionality needs to be implemented in sequenceviewer	 &	16 hours \\\hline
+	48	&		 &	Sequenceviewer: possible settings for up to 7 pictograms		 &		Do not show more than 7 pictograms at once. This is a requirement from the stakeholders/requirements group			 & 	16 hours	\\\hline
+	49	&		 &	sequenceviewer: highlighting with a outline.	 &	When the user choses a method of highlighting to be the a highlighting, it should directly show a outline for that sequence or pictogram.			 &	16 hours \\\hline
+	50	&		 &	sequenceviewer: an arrow highlighting method	 &	The arrow should in a fixed position. So when the the pictogram is marked as "cancel/done", the pictograms move, but not the arrow.				 &	16 hours \\\hline
+	51	&		 &	sequenceviewer: in settings dialog - choose what type of highlighting there should be		 &	Should it be an arrow or a highlighting method?	 &	2 hours \\\hline
+	52	&		 &	sequence-viewer: Do not show half of a pictogram		 & 	The entire sequence should snap, so it is impossible to see half pictograms	 &	8 hours	\\\hline
+	53	&		 &	sequence-viewer: blur pictures out of focus		 &	When a user (child or guardian?) presses a pictogram, then blur the others out????			 &	8 hours \\\hline
+\caption{This is a list of the issues we had in our product backlog regarding sequenceviewer going into sprint 3}
+\label{tab:spr3_sw_prodblog}
+\end{longtable}
+
+\section{Sprint 4 - Product Backlog}
+\begin{longtable} { | c | c | p{5cm} | p{5cm} | c | } 
+\hline
+	ID 	&	Iced	&	Issues	&	Description		&	 Es. hours \\\hline
+	54	& 	 	&	General bugfixes		& 	The program is filled with temporary code fixes from when the database sync wasn't in place	 & 4 hours  \\\hline
+	55	& 	 	&	Rearrange fix	& 	As the database sync has been fixed, rearranging had to entail rearranging in the database as well	 &   8 hours \\\hline
+	56	& 	 	&	Handle no child from Launcher	& 	It was decided across the entire semester, that it should be possible to log in in launcher without a child, this means the ChildID can be 0. Sekvens doesn't work when no child is selected so we have to make sure everything is handled accordingly	 &  8 hours \\\hline
+	57	& 	 	&	Add settings	& 	Saving settings for each child as they are needed in sequenceviewer	& 	16 hours  \\\hline
+	58	& 	 	&	Add icons to all buttons	& 	all the old placeholders needed to be replaced with the real icons	 & 	1 hour  \\\hline
+	59	& 	 	&	Implement delete/copy with database	& 	Adds database functionality to fix delete and copy	 & 1 hour  \\\hline
+	60	& 	 	&	Settings Intends		& 	send the settings with the call to sequenceviewer as intends	 &   \\\hline
+	61	& 	 	&	Profileselector Button	& 	adjust our relogButton to the profileselector option GUI has provided	 &   \\\hline
+	62	& 	 	&	Send sequence to email	& 	Make it possible to send a sequence to an email in order to print it out &   \\\hline
+\caption{This is a list of the issues we had in our product backlog regarding sekvens going into sprint 4}
+\label{tab:spr4_prodblog}
+\end{longtable}
+
+\begin{longtable} { | c | c | p{5cm} | p{5cm} | c | } 
+\hline
+	ID 	& Iced	&	Issues	&	Description		&	 Es. hours \\\hline
+	63	& 		& 	Sequenceviewer: Display nested sequences	&	Should be able to display nested sequences		& 	16 hours \\\hline
+	64	& 		&   Sequenceviewer: Display choice	&	Requirement from the Sequence-group and the Lifestories-group	& 	16 hours  \\\hline
+	65	& 		& 	Sequenceviewer: Play/pause/stop sound	&	Requirement for the Parrot-group.	& 	32 hours  \\\hline
+	66	& 		& 	Sequenceviewer: DB sync	&	Gather all the information through sequenceID as you can not send a sequence as intent			 &  32 hours \\\hline
+	67	& 		& 	Sequenceviewer: Portrait-mode	&	Supporting portrait mode - reading sequences from top and down	&   2 hours \\\hline
+	68	&		& 	Sequenceviewer: Landscape-mode	&	Supporting landscape mode - reading sequences from left to right		& 		   2 hours \\\hline
+	69	& 		& 	Sequenceviewer: Marker drag over to next pictogram	&	Being able to drag the marker to the next pictogram in a sequence	& 	16 hours	   \\\hline
+	70	& 		& 	Sequenceviewer: Marker stays at pictogram when scrolling the sequence	&	Being able to to snap the marker to a pictogram, not changing what is points to when scrolling the sequence.		& 	8 hours	   \\\hline
+	71	& 		& 	Sequenceviewer: Marker snaps to pictogram	&	Snap-effect to the marker, when you you drag marker to a new pictogram.	& 		16 hours   \\\hline
+	72	& 		& 	Sequenceviewer: 2 rows/columns. 1 with a marker, 1 with a sequence	&	Requirement from Lifestories-group.	& 	16 hours	   \\\hline
+	73	& 		& 	Sequenceviewer: display 2 rows/columns	&	Requirement from Lifestories-group. They wanted two sequences to be displayed, one on top of the other.	& 	16 hours	   \\\hline
+	74	& 		& 	Sequenceviewer: While playing sound, follow the pictogram which has sound being played	&	When playing sound, a marker should highlight the pictogram with sound being played at that moment, following along the sequence when playing it all.	& 		32 hours   \\\hline
+\caption{This is a list of the issues all related to sequenceviewer}
+\label{tab:spr4_sw_prodblog}
+\end{longtable}
+
