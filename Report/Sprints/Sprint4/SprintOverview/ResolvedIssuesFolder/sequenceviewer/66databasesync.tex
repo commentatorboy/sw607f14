@@ -5,3 +5,25 @@
 \caption{Issue ID 66}
 \label{tab:spr4_SVdbSync}
 \end{longtable}
+
+Even though section \ref{sec:database_planning} explains the collaboration about common database functionality, there were misunderstandings in how to use it. This resulted in Sequence using the database slightly different than Lifestories. Additionally, Parrot did not have time to implement the database at all, therefore they are not part of the database sync of Sequenceviewer. To asses this issue with different database-usage, Sequenceviewer implements two different ways of fetching a sequence with pictograms from the database. 
+
+In \ct{MainActivity} we get the \ct{sequenceId} as intent from the application calling Sequenceviewer. We use this id to get the sequence from the database by using the helper created by the database-group. The database-group also created a library with models, which contains a sequence-class. We import their two classes, create an instance of the sequence-class and use the helper to get the sequence and pictograms from the database, according to the \ct{sequenceId}.
+
+\begin{lstlisting} [caption={}, label={lst:}]
+import dk.aau.cs.giraf.oasis.lib.Helper;
+import dk.aau.cs.giraf.oasis.lib.models.Sequence;
+...
+private static Sequence sequence = new Sequence();
+...
+sequence = helper.sequenceController.getSequenceAndFrames(sequenceId);
+...
+\end{lstlisting}
+
+In the constructor of HorizontallyScroll and VerticallyScroll, we take as argument the type of the application calling Sequenceviewer. We assign them a number as in the following order:
+\begin{enumerate}
+\item Sekvens $/$ Zebra
+\item PiktoOplaeser $/$ Parrot
+\item Livshistorier $/$ Tortoise
+\end{enumerate}
+
