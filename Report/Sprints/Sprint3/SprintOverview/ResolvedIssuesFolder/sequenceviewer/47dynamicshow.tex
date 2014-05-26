@@ -12,7 +12,7 @@ The varying number of pictograms to display, will be based on a setting provided
 
 This issue is solved by first using one of two GUI-components called GHorizontalScrollViewSnapper or GVerticalScrollViewSnapper. Horizontal is used for making landscape scrolling, and vertical for portrait. \note{collaboration with GUI}. Both screen-orientations are build the same way, so we will explain how it is made based on landscape-mode. 
 
-When Sequenceviewer is called, it launches the onCreate-method together with activity$\_$main.xml. In the onCreate-method a condition checks whether the calling application has requested landscape or portrait, see listing \ref{lst:landscapeDynamic}. In the case of landscape-mode, the layout in landscape$\_$mode.xml is inflated into activity$\_$main.xml. landscape$\_$mode.xml contains the GUI components regarding buttons, images and text for the Sequenceviewer. The onCreate-method sets up the colors from GUI-components using setColors(). Now the scrollview for landscape$\_$mode is created by instantiating a new HorizontallyScroll view. HorizontallyScroll takes 5 paremeters:
+When Sequenceviewer is called, it launches the onCreate-method together with activity$\_$main.xml. In the onCreate-method a condition checks whether the calling application has requested landscape or portrait, see listing \ref{lst:landscapeDynamic}. In the case of landscape-mode, the layout in landscape$\_$mode.xml is inflated into activity$\_$main.xml. landscape$\_$mode.xml contains the GUI components regarding buttons, images and text for the Sequenceviewer. The onCreate-method sets up the colors from GUI-components using setColors(). Now the ScrollView for landscape$\_$mode is created by instantiating a new HorizontallyScroll view. HorizontallyScroll takes 5 paremeters:
 \begin{itemize}
 \item \textit{Context context}, the current context.
 \item \textit{Sequence sequence}, the sequence to display. Fetched from database by id sent from the calling application.
@@ -21,7 +21,7 @@ When Sequenceviewer is called, it launches the onCreate-method together with act
 \item \textit{int picVisCount}, the number of visible pictograms. Sent by the calling application.
 \end{itemize}
 
-The scrollview is then added to the relative layout in the landscape-layout.
+The ScrollView is then added to the relative layout in the landscape-layout.
 
 \begin{lstlisting} [caption={Dynamic number of pictograms in landscape-mode}, label={lst:landscapeDynamic}]
 
@@ -39,9 +39,9 @@ The scrollview is then added to the relative layout in the landscape-layout.
 
 \end{lstlisting}
 
-By android-standard, multiple views cannot be directly added to a scrollview. Therefore, in the constructor of HorizontallyScroll, a LinearLayout is created and added to the scrollview called mainLayout. 
+By android-standard, multiple views cannot be directly added to a ScrollView. Therefore, in the constructor of HorizontallyScroll, a LinearLayout is created and added to the ScrollView called mainLayout. 
 
-Next thing is to create a view in the scrollview for each pictogram in the sequence. This is done by first overriding onDraw in HorizontallyScroll. We need to work with the width and height of the view in which the scrollview exist, and android has not defined width and height before it has been drawing the view. For each pictogram, we instantiate a new PictogramView. Before we add the pictogram to the view, we have to consider the number of pictograms to display, therefore we scale it. We define the limiting factor in the view by using $math.min$, which returns the most negative of two argument. We feed $math.min$ with \ct{getWidth() / numberOfVisibiblePictograms} and ct{getHeight()}. As this is landscape$\_$mode, they line up horizontally therefore we divide the width into a section for each requested visible pictogram. Then a pictogramScaling-method is called, see listing \ref{lst:pictogramScalingMethod}, which makes the pictograms as large as possible, within the section they are allowed fill. The method takes the original pictogram, the limiting factor and a filter. We do not use filters. If the pictogram is larger than 100 in width or height, it is scaled down to around 100x100. Thereafter, it scales the pictogram up or down to match the assigned section. 
+Next thing is to create a view in the ScrollView for each pictogram in the sequence. This is done by first overriding onDraw in HorizontallyScroll. We need to work with the width and height of the view in which the ScrollView exist, and android has not defined width and height before it has been drawing the view. For each pictogram, we instantiate a new PictogramView. Before we add the pictogram to the view, we have to consider the number of pictograms to display, therefore we scale it. We define the limiting factor in the view by using $math.min$, which returns the most negative of two argument. We feed $math.min$ with \ct{getWidth() / numberOfVisibiblePictograms} and ct{getHeight()}. As this is landscape$\_$mode, they line up horizontally therefore we divide the width into a section for each requested visible pictogram. Then a pictogramScaling-method is called, see listing \ref{lst:pictogramScalingMethod}, which makes the pictograms as large as possible, within the section they are allowed fill. The method takes the original pictogram, the limiting factor and a filter. We do not use filters. If the pictogram is larger than 100 in width or height, it is scaled down to around 100x100. Thereafter, it scales the pictogram up or down to match the assigned section. 
 
 \begin{lstlisting} [caption={Scaling method for pictograms}, label={lst:pictogramScalingMethod}]
 
@@ -69,7 +69,7 @@ Next thing is to create a view in the scrollview for each pictogram in the seque
 
 Now the pictogram is added to the PictogramView. PictogramView is a class we took from the Sequence-project, which makes nice rounded edges on the pictogram. Then, the PictogramView is added to the before mentioned LinearLayout called mainLayout, that contain all the pictograms to display.
 
-The last thing we do, is to scale the layout-parameters of the scrollview and mainLayout. We define the width as: \ct{pictogramToDisplay.getWidth()* numberOfVisibiblePictograms}, and we define the height as: \ct{RelativeLayout.LayoutParams.MATCH$\_$PARENT}. The pictogramToDisplay is a regular pictogram that is scaled the same way as those in a sequence, which we use to get a pictogram width. We define these layout-parameters for the scrollview and the mainLayout, and then we center everything in the mainLayout by calling: \ct{mainLayout.setGravity(Gravity.CENTER)}, see listing \ref{lst:addPictogram}.
+The last thing we do, is to scale the layout-parameters of the ScrollView and mainLayout. We define the width as: \ct{pictogramToDisplay.getWidth()* numberOfVisibiblePictograms}, and we define the height as: \ct{RelativeLayout.LayoutParams.MATCH$\_$PARENT}. The pictogramToDisplay is a regular pictogram that is scaled the same way as those in a sequence, which we use to get a pictogram width. We define these layout-parameters for the ScrollView and the mainLayout, and then we center everything in the mainLayout by calling: \ct{mainLayout.setGravity(Gravity.CENTER)}, see listing \ref{lst:addPictogram}.
 
 \begin{lstlisting} [caption={Adding the scaled pictogram to the PictogramView}, label={lst:addPictogram}]
 	limiter = Math.min(getWidth() / numberOfVisibiblePictograms, getHeight());
