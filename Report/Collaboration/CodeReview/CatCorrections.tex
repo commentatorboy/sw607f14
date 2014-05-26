@@ -16,7 +16,7 @@ A case was also found where an instantiated variable was instantiated again for 
 
 \paragraph{Other:}
 A few examples were found where the code was perfectly functional, but technically wrong, not used as intended or unnecessary.
-An example of wrongly used code was the use of controllers. Rather than using from database designed helpers to use these controllers, these helpers were circumvented by copying the entire controllers.
+An example of wrongly used code was the use of controllers. Rather than using the helper class from Oasis, these helpers were circumvented by instantiating new controllers.
 Another minor detail was to cancel a window rather than dismissing it. While not changing any functionality, it would have been technically correct to use Android's dismiss method.
 
 Adapters were used a lot in the Activity and were fully functional. In the code however, it turned out that every time the data for an adapter was changed, a new adapter was created on that data. The correct way would have been to use Android's \ct{notifyDataSetChanged} method to update the existing adapter.

@@ -17,4 +17,6 @@ As the \ct{onPause} method was unneeded, it was removed. It had been used before
 As was noted, we had some cases of complex conditionals. The \ct{OnActivityResult} method was the worst in this. Before refactoring the method, it consisted of several if-statements (some of which made a ``backwards'' check, e.g.\ \ct{if (isIcon != true) \{ \ldots{} \}}). After refactoring, the method contained a switch statement, with four cases, which is much easier to read.
 
 \paragraph{Rejected suggestions:}
+The potential bug where it was possible to avoid selecting a child by using the Back button, was a general issue involving the Giraf-Component \ct{GProfileSelector}, and can best be fixed by the group working on GUI. Therefore it was unfortunately not handled this year, but should be looked at next year.
+
 Other suggestions for improving the code was rejected simply due to a lack of time.
