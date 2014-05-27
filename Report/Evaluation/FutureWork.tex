@@ -1,4 +1,5 @@
 \section{Future Work}\label{sec:future_work}
+
 In the following section we will discuss the future work of Sekvens. Aside from the big functional improvements listed below, there are a lot of optimizing and improvements to the general flow of the project. The general flow could be improved through more usability testing and applying whatever improvements they suggest - as to missing dialog boxes, misinterpreted buttons or unclear instructions.
 
 \paragraph{Nested Sequences} as mentioned at the section nested sequences (see \ref{tab:spr4_nestedSequence}), there is a couple of different issues with the implementation chosen. As mentioned the biggest problem seem to be that it is possible to alter/delete sequences as the main sequence simply references the nested sequence. This is a problem because deleting the nested sequence will at first make the application crash, but later when a new sequence is made with the same ID as the deleted nested sequence used to have, link to a wrong sequence. There is various different ways to resolve this issue, and one of them could be creating a new `hidden' sequence which is only linked to through the main sequence. The downside of this solution is the amount of memory used to store `hidden' sequences which in themselves offer nothing to the application.
@@ -22,3 +23,8 @@ The following is a list of minor changes which does not take long to fix, but wa
 \item Right now the \ct{GGridView} in \ct{MainActivity} always shows 5 \ct{PictogramViews}. This should be dynamic such that the amount of sequences shown are determined by the width of the screen.
 \end{itemize}
 
+\subsection{Rejected tasks in Product Backlog}
+Over time, the Product Backlog was cluttered due to tasks that had for various reasons was invalidated. This could happen due to new issues, new knowledge about an issue or change of focus. Therefore the backlog was looked through, and the following issues has been removed from it.
+
+\subsection{Remaining Product Backlog}
+Even after sorting through the backlog at the end of the last sprint, some issues still remained. This was both tasks that have never been picked up and tasks not completed in sprints. The following is the final product backlog. This can be used as reference for anyone wanting to continue development on Sekvens.
