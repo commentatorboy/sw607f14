@@ -17,20 +17,13 @@ This was a trivial task of changing the application name in the AndroidManifest 
 \caption{Issue ID 10}
 \label{tab:spr1_issue10}
 \end{longtable}
-Changing the name of a sequence was previously done by clicking on the title text, but it was not obvious that it was in fact editable (for reference see picture \ref{fig:Old_editName}).  The issue was first solved by adding a button which programatically places the cursor in the textfield and popping up the virtual keyboard. We felt like this cluttered the entire UI a little bit with too many buttons, so we decided to keep the issue open for later revising. 
+Changing the name of a sequence was previously done by clicking on the title text, but it was not obvious that it was in fact editable.  The issue was solved by adding a button (as shown in figure \ref{fig:Old_editName}) which programatically places the cursor in the textfield and popping up the virtual keyboard. We felt like this cluttered the entire UI a little bit with too many buttons, so we decided to keep the issue open for later revising. As there no existing icons to represent editing the name, we used a simple white placeholder with the text `TEXT' on it. 
 \begin{figure} [h!]
 \centering
-\begin{minipage}{.7\textwidth}
-\centering
-\includegraphics{Pics/Sprint1/Gammelt/change_sequence_name}
-\caption{A picture of the editable name before}
+\includegraphics[width=0.8\textwidth]{Pics/Sprint1/editName/editNameButton.png}
+\caption{This is a picture of top bar after the edit button was added}
 \label{fig:Old_editName}
-\includegraphics{Pics/Sprint1/Gammelt/change_sequence_name}
-\caption{A picture of the editable name after}
-\label{fig:New_editName}
-\end{minipage}\hfill
 \end{figure}
-\todo{this isnt the place to show screenshots}
 
 \begin{longtable} { | c | p{12cm} | c | } 
 \hline
