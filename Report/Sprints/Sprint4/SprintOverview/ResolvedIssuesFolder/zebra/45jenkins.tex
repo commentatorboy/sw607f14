@@ -1,0 +1,9 @@
+\begin{longtable} { | c | p{12cm} | c | } 
+\hline
+	ID 	&	Issues	&		 Es. hours \\\hline
+	45	&	Make sure Jenkins compiles correctly with Sekvens	&	2 hours	\\\hline
+\caption{Issue ID 45}
+\label{tab:spr4_jenkins}
+\end{longtable}
+
+From previous semesters it had been decided to use Jenkins to check whether applications compiles at any given time. Except from a very minor addition to the gradle build file, the only change needed to make Sekvens build successfully was covered in \ref{tab:spr4_refactoroverview} by removing submodules. One of these did not compile properly, which consequently meant that Jenkins registered the same for Sekvens, given that it was registered as a submodule.
