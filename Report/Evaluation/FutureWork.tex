@@ -10,6 +10,9 @@ The other problem with nested sequences is the possibility to create circular ne
 
 \paragraph{Snapping Scrollviews} This problem is a bit more coding dependent. It was a requirement listed by the costumers \note{Indsaet reference til requirements analysis} that the children were never exposed to half pictograms as they might be confusing. This means every place that has \ct{PictogramViews}, needs to implement a snapping grid ensuring that only full pictograms are shown. This is the case in the overviews \ct{GGridView} and the \ct{SequenceViewGroup} in \ct{sequenceActivity}. In \ct{sequenceActivity} it might be pretty arbitrary to do as it always shows 4 \ct{PictogramViews} horizontally in 1 row and scale them according to the width of the screen. It might be harder in the \ct{MainActivity} as it scales according to width but stacks rows as sequences are added. 
 
+\paragraph{Implement Sequenceviewer with PiktoOplaeser}
+During this semester, PiktoOplaeser did not manage to implement the database functionality finished during sprint 4. Therefore, Sequenceviewer did not have the possibility to implement their way of using the database, and setting up functionality for their application. Next semester, cooperation should finish this absence of functionality. From the Sequenceviewer perspective, code should be written for their database-usage, and provide the PiktoOplaeser-group with information and help with setting up the intents and call to Sequenceviewer.
+
 \paragraph{Miscellaneous}
 The following is a list of minor changes which does not take long to fix, but was big enough to receive a notable mention. 
 
