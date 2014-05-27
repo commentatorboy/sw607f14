@@ -2,6 +2,7 @@
 \hline
 	ID 	&	Issues	&		 Es. hours \\\hline
 	1	&	Syncronization with the Database	&	32 hours	\\\hline
+	25	&	Fix ADD/SAVE/BACK button in SequenceActivity	&	4 hours	\\\hline
 \caption{Issue ID 1}
 \label{tab:spr4_syncwithdatabase}
 \end{longtable}
@@ -11,3 +12,5 @@ This issue was the first task to make it into the product backlog for Sekvens. I
 This task covers updating all models to match the ones created by OasisLib. Specifically, Sekvens had its own representation of the classes Child, Sequence and Pictograms which were used throughout the application. Rather than reworking these to match the database, it was decided to completely remove them and use the OasisLib versions directly. This also meant updating every action taken on instances of these classes to match the possible interactions on the OasisLib versions.
 
 Sekvens previously had its own way of storing data with its own implementation, effectively isolating it from any common database. This code was completely removed as it was no longer needed.
+
+Fixing the database also finished the task regarding add/save/back buttons in \ct{sequenceActivity}.
