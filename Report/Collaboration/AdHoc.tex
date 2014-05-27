@@ -1,10 +1,21 @@
 \section{Other Ad-hoc Activities}\label{sec:adhoc}
 Apart from the the major collaborations, Sekvens was in a unique position where we had a lot of dependencies. As a result, our work often overlapped with the work of other groups. Below is described ad-hoc activities that took place on a day-to-day basis.
 
+\paragraph{LivsHistorier:} 
+In GIRAF LivsHistorier and Sekvens are really similar. The only difference between the two is that LivsHistorier is meant to be used as a collaboration between the child and the guardian. As they were so similar we decided to hold meetings to talk about shared features. The two major topics of conversation were the database for sequences (see section \ref{sec:database_planning}) and the joint viewing tool (see section \ref{sec_sequencesviewer}). Aside from these some minor points were also agreed upon, these were as following:
+
+\begin{itemize}
+\item We should share our codes because most of sequences functionality can be used in Life-stories.
+\item The settings should be saved for each child.
+\end{itemize}
+
+The biggest cases of shared code was LivsHistorier needed a prober way create sequences. They borrowed code such as \ct{SequenceViewGroup}, 
+to make it easy for the customers in a such way that they similar ways of creating sequences instead of 2 widely different methods\note{Nogle bedre formulering her???? eeeh???}. Near the end of sprint 4 the costumers really enjoyed a feature in LivsHistorier that enabled the customer to send sequences to emails in order for the to print the sequence. This was ported to Sekvens as per customer request.
+
 \paragraph{GIRAF\_Components:}
 Since it was decided to share common GUI components, most graphical components in Sekvens had to be changed. Using the components from the GIRAF\_Components group was made very intuitive, and we were mostly able to use them without problem. Sometimes however, we could not resolve either how to use a component properly, or how to give a component a certain functionality. This resulted in several cases where we lent one of their team members to provide assistance, or alternatively cases where new functionality had to be added to the GIRAF\_Components.  Furthermore, since this group did not use its own components, other than for testing, a few errors was caught via the Sekvens application, and corrected by the GIRAF\_Components group.\newline
 \newline
-\label{collaborationSnapper}During sprint 3, two formal request were made to the GIRAF\_Components group. Sequenceviewer needed a snapping-effect for a ScrollView and a HorizontalScrollview. We talked to a member of the GIRAF\_Components group about what we needed, and since nothing like it existing, two issues were added to their redmine-page. 
+\label{collaborationSnapper}During sprint 3, two formal request were made to the GIRAF\_Components group. Sequenceviewer needed a snapping-effect for a ScrollView and a HorizontalScrollview. We talked to a member of the GIRAF\_Components group about what we needed, and since nothing like it existing, two issues were added to their redmine-page. \newline
 
 \begin{tabular}{| l | l |}
   \hline                       
