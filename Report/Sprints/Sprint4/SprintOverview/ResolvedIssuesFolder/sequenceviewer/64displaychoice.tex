@@ -6,3 +6,66 @@
 \label{tab:spr4_SVdisplayChoice}
 \end{longtable}
 
+When looking through the sequence fetched from the database, refer issue 66 in table \ref{tab:spr4_SVdbSync}, we attach a \ct{onClickListener} to be able to display a choice. This is done by calling the method \ct{atttachChoiceListener} to the pictogram-placeholder for the choice. Refer issue 66 in table \ref{tab:spr4_SVdbSync}, this choice-placer may be a pictogram from the database, or it may be a temporary pictogram. In the current version of Sequenceviewer we use the pictogram shown in figure \ref{fig:choiceplaceholder} as choice-placeholder.
+
+\begin{figure}[H]
+	\centering
+	\fbox{\includegraphics[scale=0.35]{Pics/Sprint4/questionwhite.png}}
+	\caption{The current temporary choice-placeholder pictogram. This pictogram is used, unless another is defined in the fetched sequence.}
+	\label{fig:choiceplaceholder}
+\end{figure}
+
+The \ct{attachChoiceListener}-method attaches a click-functionality to the choice-holder pictogram, as well as define what should happen \ct{onClick}. \ct{onClick} will call the second method used for displaying choice called \ct{showChoiceDialog}. This method takes two parameters, the view that was clicked on and a reference to a \ct{Map<Integer, List<Integer>>} which contains the pictograms to display in the choice. Refer issue 66 in table \ref{tab:spr4_SVdbSync} to see how this \ct{Map} is created and filled.
+
+The \ct{showChoiceDialog}-method creates a new instance of the ChoiceDialog class, defined internally in the HorizontallyScroll and VerticallyScroll classes. ChoiceDialog takes 3 parameters in the constructor, the context of the \ct{onClick}-view, the \ct{Map} with pictograms in the choice, and the \ct{onClick}-view. It then proceeds to show the choiceDialog, when it is instantiated.
+
+The \ct{ChoiceDialog}-class defines the functionality inside the \ct{choice$\_$dialog}.xml-file. The xml-file is created much like landscape- and portrait-mode, with a top-bar with text and a ScrollView below. We start off by inflating the choiceDialog, which now displays the choiceDialog as pop-up above the Sequenceviewer-window. We then target the LinearLayout in the \ct{choice$\_$dialog}.xml-file, because it is here we insert our pictograms. We also have to target the pictograms for this specific choice, as there may be multiple, therefore we use \ct{onClick}-view and use its id to point to the right position in the \ct{Map}. Then we iterate over the pictograms in the choice and insert views in the choiceDialog. Just like in the dynamic show, refer issue 47 in table \ref{tab:spr3_SVdynamicshow}, we scale the pictograms to fit the window. Last, we attach \ct{onClickListeners} to every pictogram in the choiceDialog, because whichever pictogram may be clicked on, has to be returned to the position of the choice-placeholder in the original sequence. We use the \ct{attachReturnPictogram}-method which takes three parameters, the \ct{onClick}-view, the choice-placeholder-view and the choiceDialog. The code can be seen in listing \ref{lst:SVchoiceDialog}, it uses same functionality as the code in listing \ref{lst:addPictogram}.
+
+\begin{lstlisting} [caption={The constructor of ChoiceDialog sets up the pictograms and attaches onClickListeners}, label={lst:SVchoiceDialog}]
+public ChoiceDialog(Context context, final Map<Integer,List<Integer>> pictogramMap, View choiceHolder) {
+	super(context);
+	this.SetView(LayoutInflater.from(this.getContext()).inflate(R.layout.choice_dialog, null));
+
+	LinearLayout choiceDialogLayout = (LinearLayout) this.findViewById(R.id.GDialog_hsv_linlay);
+	PictogramView tempView;
+	PictogramView temp1View = (PictogramView)choiceHolder;
+	List<Integer> pictogramArray = pictogramMap.get(temp1View.getId());
+
+	for(int i = 0; i < pictogramArray.size(); i++) {
+		tempView = new PictogramView(getContext(),16f);
+		tempView.setId(i);
+		pictogram = helper.pictogramHelper.getPictogramById(pictogramArray.get(i)).getImage();
+		int limiter = Math.min(getWidth() / numberOfVisibiblePictograms, getHeight());
+		Bitmap pictogramToDisplay = pictogramScaling(pictogram, limiter, false);
+		tempView.setImageFromBitmap(pictogramToDisplay);
+
+		choiceDialogLayout.addView(tempView);
+
+		attachReturnPictogram(tempView, choiceHolder, this);
+	}
+}
+\end{lstlisting}
+
+The ct{attachReturnPictogram}-method targets two views, the pictogram-view which the customer must have clicked on, and the choice-placeholder-view. It then removes the choice-placeholder-view from the sequence, because now it is no longer a choice. It then removes the pictogram-view from the choiceDialog, and inserts it in the sequence at the position where the choice-placeholder-view was positioned before. Last, it dismisses the choiceDialog.  The code can be seen in listing \ref{lst:returnfromchoice}.
+
+\begin{lstlisting} [caption={Attaches the onClickListeners, that ends the choice by removing the choice-placeholder and inserting the pictogram that was clicked on}, label={lst:returnfromchoice}]
+private void attachReturnPictogram(View v, final View choiceHolder, final ChoiceDialog dialog){
+	v.setOnClickListener(new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			PictogramView temp = (PictogramView) v;
+			PictogramView temp2 = (PictogramView) choiceHolder;
+			mainLayout.removeView(temp2);
+			LinearLayout mainLay = (LinearLayout) temp.getParent();
+			mainLay.removeView(temp);
+			mainLayout.addView(temp,temp2.getId());
+
+			dialog.dismiss();
+		}
+	});
+}
+\end{lstlisting}
+
+
+
+
