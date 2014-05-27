@@ -1,0 +1,11 @@
+\begin{longtable} { | c | p{12cm} | c | } 
+\hline
+	ID 	&	Issues	&		 Es. hours \\\hline
+	55	&	Rearrange fix	&	8 hours	\\\hline
+\caption{Issue ID 55}
+\label{tab:spr4_rearrangefix}
+\end{longtable}
+
+When synchronizing with the database as described in \ref{tab:spr4_syncwithdatabase}, one feature was not possible to convert successfully. Previously, rearranging was handling by using the local sequence class. The OasisLib version of the class however did not have an equivalent method. Another issue, discovered from this was that frames within sequences had no logical order - The display was simply the order in which they were found and returned by the database.
+
+To solve both this and make rearrange work, the frames themselves were altered. Due to other groups requirements, frames had the ability to store within them a \ct{posX} and a \ct{posY} integer. To handle ordering of frames in a sequence, every frame would now be assigned a posX, which would then be its placement in the sequence. This also did that we could rearrange frames by changing the positions accordingly. In fact, OasisLib created a method for us to do just that.
