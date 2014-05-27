@@ -29,7 +29,7 @@ In the landscape$\_$mode.xml file, an ImageView with the picture of an arrow as 
 
 We have then created a method in the HorizontallyScroll class called \ct{setupMarker}. This method aligns the marker above the first pictogram in the sequence, and sets its visibility to \textit{visible}. The alignment is done by first targetting the LinearLayout which contains the ImageView with the arrow. We then assign as much space as a pictogram for width and wrap$\_$content for height, and define these as the layout-parameters for this LinearLayout.
 
-We then add alignment rules for the LinearLayout, this is done because it is placed inside a RelativeLayout. We use \ct{ALIGN$\_$LEFT, mainLayout.getChildAt(0).getId()} and \ct{ABOVE, mainLayout.getChildAt(0).getId()}, to make the arrow stay above the first pictogram in the sequence. Last we center everything inside the LinearLayout.
+We then add alignment rules for the LinearLayout, this is done because it is placed inside a RelativeLayout. We use \ct{ALIGN$\_$LEFT, mainLayout.getChildAt(0).getId()} and \newline \ct{ABOVE, mainLayout.getChildAt(0).getId()}, to make the arrow stay above the first pictogram in the sequence. Last we center everything inside the LinearLayout.
 
 We set the arrow to \textit{visible}, and tell the ScrollView to stay below the arrow with \ct{BELOW, arrow$\_$linlay.getId()}. The code can be seen in \ref{lst:markerMethod}.
 
@@ -54,3 +54,11 @@ We set the arrow to \textit{visible}, and tell the ScrollView to stay below the 
 
     }
 \end{lstlisting}
+
+The marker can be seen attached to a five pictogram long sequence shown in figure \ref{fig:markerpic}, which is displayed in landscape-mode.
+\begin{figure} [h!]
+\centering
+\includegraphics[width=0.9\textwidth]{Pics/Sprint3/landscape5picsCROP.png}
+\caption{This is the arrow-marker displayed above the first pictogram in a sequence displayed in landscape-mode}
+\label{fig:markerpic}
+\end{figure}
