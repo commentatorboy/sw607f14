@@ -9,7 +9,7 @@
       <w>140</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>GIRAF Launcher
+    <panel_attributes>Launcher
 bg=yellow</panel_attributes>
     <additional_attributes/>
   </element>
@@ -67,7 +67,7 @@ bg=orange</panel_attributes>
       <w>140</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>GUI
+    <panel_attributes>GComponents
 bg=magenta
 </panel_attributes>
     <additional_attributes/>
