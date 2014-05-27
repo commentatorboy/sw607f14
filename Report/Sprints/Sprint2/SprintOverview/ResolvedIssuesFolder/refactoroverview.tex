@@ -7,3 +7,32 @@
 \end{longtable}
 
 In continuation of removing the child list, \ref{tab:spr2_removechildlist}, Sekvens needed to be setup to take the ID of a child and a guardian from the Launcher. As a child could no longer be chosen from within Sekvens, the application would have to be opened from Launcher from this point. The functionality was implemented by receiving the from Launcher sent intent, and parsing the extras into two ID's. A \ct{currentGuardianID} and a \ct{currentChildID}. The (from database) child matching the \ct{currentChildID} would be the profile that Sekvens should load and manage sequences for.
+
+\begin{lstlisting}[caption={A small code example of fetching the intents from Launcher}, label={lst:fetchIntent}]
+    
+	private void setChild() {
+		sequences.clear();
+		Bundle extras = getIntent().getExtras();
+        guardianId = extras.getInt("currentGuardianID");
+
+        //TODO: childId from launcher is currently long, but we expect it to be int soon. This is why we parse it here.
+        long childIdLong = extras.getLong("currentChildID");
+        int childId = Integer.parseInt(Long.toString(childIdLong));
+
+        try{helper = new Helper(this);}
+        catch(Exception e){}
+   		Profile guardian = helper.profilesHelper.getProfileById(guardianId);
+   		List<Profile> childProfiles = helper.profilesHelper.getChildrenByGuardian(guardian);
+
+    	for (Profile p : childProfiles) {
+    		if (p.getId() == childId) {
+                Child c = new Child(childId, p.getName(), p.getImage());
+                String name = p.getName();
+                Bitmap picture = p.getImage();
+                selectedChild = c;
+            }
+       }
+        refreshSelectedChild();
+   }
+
+\end{lstlisting}
