@@ -6,7 +6,7 @@
 \label{tab:spr3_choicesinsequences}
 \end{longtable}
 
-As choices was now able to add in sequences, we needed some way to display and editing choices. \note{INDSÆT BILLEDE AF DIALOGBOX MED CHOICE} The group focusing on `LivsHistorier' had a way to show and display choices, but we found that the theme of their dialog box did not fit well into `Sekvens'. We wanted to keep editing consistent within the application itself, so we chose to use the same \ct{ViewGroups} to have them completely similar. We created a fully customizable dialog box and created a new \ct{SequenceViewGroup} within it. The following listing shows how the code is written and how portrayed in figure \ref{fig:magicshit}
+As choices was now able to add in sequences, we needed some way to display and editing choices. The group focusing on `LivsHistorier' had a way to show and display choices, but we found that the theme of their dialog box did not fit well into `Sekvens'. We wanted to keep editing consistent within the application itself, so we chose to use the same \ct{ViewGroups} to have them completely similar. We created a fully customizable dialog box and created a new \ct{SequenceViewGroup} within it. The following listing shows how the code is written and how portrayed in figure \ref{fig:choiceDialog}
 
 \begin{lstlisting}
 
@@ -42,9 +42,9 @@ As choices was now able to add in sequences, we needed some way to display and e
 
 This made the implementation really easy as all of the functionality we needed i choice already was implemented in \ct{SequenceViewGroup}. The features included adding pictograms to the choice, as well as arbitrary scrolling features and handling the views. The fully customizable dialogbox provided by the GUI-component group, made it easy to follow the overall theme. Figure \ref{fig:magicshit} is a representation of what creating a choice looks like.
 
-\begin{figure} [H]
+\begin{figure} [h!]
 \centering
-\includegraphics[width=14cm]{Pics/Sprint3/EditModeCropped}
-\caption{THISISAPLACEHOLDER}
-\label{fig:magicshit}
+\includegraphics[width=.9\textwidth]{Pics/Sprint3/choices/choiceDialog}
+\caption{This is an example of a choice being created}
+\label{fig:choiceDialog}
 \end{figure}
