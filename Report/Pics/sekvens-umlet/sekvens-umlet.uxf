@@ -9,7 +9,7 @@
       <w>140</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>GIRAF Launcher
+    <panel_attributes>Launcher
 bg=yellow</panel_attributes>
     <additional_attributes/>
   </element>
@@ -67,7 +67,7 @@ bg=orange</panel_attributes>
       <w>140</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>GIRAF Launcher
+    <panel_attributes>GComponents
 bg=magenta
 </panel_attributes>
     <additional_attributes/>
@@ -80,7 +80,7 @@ bg=magenta
       <w>140</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>GIRAF Launcher
+    <panel_attributes>OasisLib
 bg=cyan
 </panel_attributes>
     <additional_attributes/>
@@ -93,7 +93,7 @@ bg=cyan
       <w>130</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>Sequenceviewer
+    <panel_attributes>PictoSearch
 bg=#3c7a00</panel_attributes>
     <additional_attributes/>
   </element>
