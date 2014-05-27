@@ -1,9 +1,9 @@
 \begin{longtable} { | c | p{12cm} | c | } 
 \hline
 	ID 	&	Issues	&		 Es. hours \\\hline
-	58	&	Add icons to all buttons	&	1 hour	\\\hline
+	56	&	Handle no child from Launcher	&	8 hour	\\\hline
 \caption{Issue ID 1}
 \label{tab:spr4_iconstobuttons}
 \end{longtable}
 
-As the semester was coming to an end and we had to make the program costumer ready, we had to get rid of all the placeholders and add the real icons. The assignment itself was very trivial as it was a matter of changing all of the drawables. Furthermore we wanted to add text to each button as some of the icons were a bit too bland by themselves. As we added text we noticed pictures on buttons scales from width, so if we wanted the button to be quadratic, it was impossible to add text. We decided buttons were more appealing if had quadratic buttons and no text, than rectangular buttons with text.
+At the end of sprint 3, it was decided by GIRAF to change the way logging in to the Launcher works. It would now be possible to enter the launcher without having a \ct{childId} set, and Sekvens needs a childId to run. This means we had to check whether or not the \ct{childId} was equals to 0, and force the user to select a child if none is chosen. When Sekvens is opened without a child, a \ct{GProfileSelector} pops up with all the children connected to the guardian.\note{eventuelt billede af profileselector?}
