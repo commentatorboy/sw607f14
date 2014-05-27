@@ -1,17 +1,17 @@
 \subsection{`Sekvens': applying feedback from Cat}\label{subsec:collab_sekvensresult}
 As a result of the CAT groups constructive feedback, the MainActivity of Sekvens were changed.
 
-\paragraph{Moving code to XML:}
+\paragraph{Moving code to XML}
 Some code was highlighted which could be set in XML rather than be done programmatically during runtime, and we did exactly that, as it were preferred setting elements in XML whenever possible.
 
-\paragraph{Try-Catch:}
+\paragraph{Try-Catch}
 It was noticed by CAT that several \ct{try-catch} were present without any real functionality; Errors would be caught but not dealt with. Most of the \ct{try-catch} present in the code was not needed at that point, and were simply removed as it was not possible for the exceptions to occur.
 
-\paragraph{Multiple classes within same file:}
+\paragraph{Multiple classes within same file}
 As we had two other classes in the same file as the MainActivity class, it was suggested to either separate them from the file or move them to the bottom of the file to separate them from methods used in MainActivity. Since the classes were minor and uniquely used in MainActivity, it was chosen to move the classes to the bottom of the file as suggested.
 
-\paragraph{String literals:}
+\paragraph{String literals}
 Rather than using constants when sending or receiving intents, MainActivity had string literals, which CAT noted as a bad idea. This change was not completed in time, but is definitely a good idea.
 
-\paragraph{Rejected suggestions:}
+\paragraph{Rejected suggestions}
 Feedback on code style was also given. This included using \ct{foreach} loops rather than using counters with \ct{for} loops and sorting variables by functionality rather than type. It was also suggested to refactor a case where a method was nested within another. This was however also rejected, as we found that for the particular case, increased readability was better than moving the inner method.

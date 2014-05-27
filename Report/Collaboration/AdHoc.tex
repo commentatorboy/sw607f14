@@ -1,7 +1,7 @@
 \section{Other Ad-hoc Activities}\label{sec:adhoc}
 Apart from the the major collaborations, Sekvens was in a unique position where we had a lot of dependencies. As a result, our work often overlapped with the work of other groups. Below is described ad-hoc activities that took place on a day-to-day basis.
 
-\paragraph{LivsHistorier:} 
+\paragraph{Livshistorier} 
 In GIRAF LivsHistorier and Sekvens are really similar. The only difference between the two is that LivsHistorier is meant to be used as a collaboration between the child and the guardian. As they were so similar we decided to hold meetings to talk about shared features. The two major topics of conversation were the database for sequences (see section \ref{sec:database_planning}) and the joint viewing tool (see section \ref{sec:sequenceviewer}). Aside from these some minor points were also agreed upon, these were as following:
 
 \begin{itemize}
@@ -12,10 +12,10 @@ In GIRAF LivsHistorier and Sekvens are really similar. The only difference betwe
 The biggest cases of shared code was LivsHistorier needed a prober way create sequences. They borrowed code such as \ct{SequenceViewGroup}, 
 to make it easy for the customers in a such way that they similar ways of creating sequences instead of 2 widely different methods\note{Nogle bedre formulering her???? eeeh???}. Near the end of sprint 4 the costumers really enjoyed a feature in LivsHistorier that enabled the customer to send sequences to emails in order for the to print the sequence. This was ported to Sekvens as per customer request.
 
-\paragraph{GIRAF\_Components:}
-Since it was decided to share common GUI components, most graphical components in Sekvens had to be changed. Using the components from the GIRAF\_Components group was made very intuitive, and we were mostly able to use them without problem. Sometimes however, we could not resolve either how to use a component properly, or how to give a component a certain functionality. This resulted in several cases where we lent one of their team members to provide assistance, or alternatively cases where new functionality had to be added to the GIRAF\_Components.  Furthermore, since this group did not use its own components, other than for testing, a few errors was caught via the Sekvens application, and corrected by the GIRAF\_Components group.\newline
+\paragraph{GComponents}
+Since it was decided to share common GUI components, most graphical components in Sekvens had to be changed. Using the components from the GComponents group was made very intuitive, and we were mostly able to use them without problem. Sometimes however, we could not resolve either how to use a component properly, or how to give a component a certain functionality. This resulted in several cases where we lent one of their team members to provide assistance, or alternatively cases where new functionality had to be added to the GComponents.  Furthermore, since this group did not use its own components, other than for testing, a few errors was caught via the Sekvens application, and corrected by the GComponents group.\newline
 \newline
-\label{collaborationSnapper}During sprint 3, two formal request were made to the GIRAF\_Components group. Sequenceviewer needed a snapping-effect for a ScrollView and a HorizontalScrollview. We talked to a member of the GIRAF\_Components group about what we needed, and since nothing like it existing, two issues were added to their redmine-page. \newline
+\label{collaborationSnapper}During sprint 3, two formal request were made to the GComponents group. Sequenceviewer needed a snapping-effect for a ScrollView and a HorizontalScrollview. We talked to a member of the GComponents group about what we needed, and since nothing like it existing, two issues were added to their redmine-page. \newline
 
 \begin{tabular}{| l | l |}
   \hline                       
@@ -24,20 +24,20 @@ Since it was decided to share common GUI components, most graphical components i
   \hline  
 \end{tabular}
 
-\paragraph{OasisLib:}
-Ad-hoc activities were also done with the OasisLib, assisting in both using their classes properly and providing new functionality on request. Given that Sekvens uses OasisLib for everything database and model related to sequences, these run-ins occured often. As with the GIRAF\_Components, our position meant that several bugs were discovered and later corrected by OasisLib.
+\paragraph{OasisLib}
+Ad-hoc activities were also done with the OasisLib, assisting in both using their classes properly and providing new functionality on request. Given that Sekvens uses OasisLib for everything database and model related to sequences, these run-ins occured often. As with the GComponents, our position meant that several bugs were discovered and later corrected by OasisLib.
 
-\paragraph{Launcher:}
+\paragraph{GIRAF}
 Sekvens was initially designed as a stand-alone application. In spite of the existing Launcher project, Sekvens was not set up to use it. The idea was that Sekvens should be opened from the Launcher, sending two ID's that Sekvens would then depend on (For the Guardian/Child launching the application). This was set up during the second sprint, but also caused some issues. Like Sekvens, Launcher was dependent on other projects that would fail from time to time, consequently also affecting Sekvens. Launcher itself also received a few changes that sometimes broke.
 
 Other than dependency issues, Launcher implemented the functionality of changing settings from within the Launcher. Some minor collaboration went into making Sekvens' settings work with the Launcher.
 
-\paragraph{PictoSearch:}
+\paragraph{PictoSearch}
 To get pictures for the sequences in Sekvens, we had a dependency for the PictoSearch application. It was our experience that the responsible group were not present very often, neither for meetings or during the usual work hours. Unfortunately this caused some problems in that the application at all times were several revisions behind on their database (OasisLib) dependencies. Other applications like Sekvens and Launcher however updated to the newest versions whenever available. Effectively, this meant that in the best case it was not possible to get pictures through PictoSearch, as the program did not match the desired version of OasisLib. In many revisions it would just crash.
 
 Due to the lack of presence from the responsible group, it was not possible to collaborate properly, and a working version was never created from their side.
 
 To get around this issue, methods were implemented to create hardcoded sequences with hardcoded pictograms within Sekvens. Towards the end of the project other groups put together a working version of PictoSearch which was used instead. This version was functional with newest database and could thus be used.
 
-\paragraph{Requirements:}
+\paragraph{Requirements}
 In the first two sprints, the overall project had a group focusing mainly on requirements. They were to have a full requirement analysis ready at the end of sprint 1, but the report was sub-par. Sekvens is very dependent on requirements from the clients, as it is a front-end application. It was decided to create a thorough report for the requirement group, in order to get as specific requirements as possible. The report can be seen in \note{Indsaet reference til appendix med rapporten her}. The ideas in the report was clarified with full hand-drawn illustrations of Sekvens, to ensure that there would be no loss of communication between us, the requirements group and the clients. It focuses mainly on interfaces of requirements they had already requested, such as illustrating how the user knows how far he is in a sequence. Examples of this were using an arrow or highlighting of a pictogram. We provided several different paper prototypes, for the various scenarios, and all the pictures can be seen in the referenced appendix.

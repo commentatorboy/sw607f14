@@ -1,12 +1,12 @@
 \subsection{`Sekvens': looking through Cat's code}\label{subsec:collab_catcorrections}
 
-\paragraph{Duplicated code:}
+\paragraph{Duplicated code}
 Throughout the code certain variables were cleared several times, creating some redundant code. It was found that a better alternative could be to create a method to clear these variables rather than doing it manually every time. The same applied to updating some of the graphical components. These updates could be done in a single method rather than several times throughout the code.
 
-\paragraph{Lazy class:}
+\paragraph{Lazy class}
 A minor issue was found that Cat overrode Android's \ct{onPause} method. The only action taken within this method was however to call Android's \ct{super.onPause}, meaning that the overridden \ct{onPause} did nothing that would not have been done automatically in the Android lifecycle.
 
-\paragraph{Contrived complexity / Complex conditionals:}
+\paragraph{Contrived complexity / Complex conditionals}
 In a few cases, unnecessary checks were performed. One case was an if-sentence that checked if a variable was empty. If it was indeed empty, it would re-create that variable as empty.
 Another case was excessive use of if-sentences where the checks could either be combined or alternatively be set up using a switch.
 While the code is generally easily readable, this could give some of the code even better readability.
@@ -14,7 +14,7 @@ While the code is generally easily readable, this could give some of the code ev
 Another case of contrived complexity was assigning all properties of an element to another, rather than copying the entire element.
 A case was also found where an instantiated variable was instantiated again for no apparent reason.
 
-\paragraph{Other:}
+\paragraph{Other}
 A few examples were found where the code was perfectly functional, but technically wrong, not used as intended or unnecessary.
 An example of wrongly used code was the use of controllers. Rather than using the helper class from Oasis, these helpers were circumvented by instantiating new controllers.
 Another minor detail was to cancel a window rather than dismissing it. While not changing any functionality, it would have been technically correct to use Android's dismiss method.
