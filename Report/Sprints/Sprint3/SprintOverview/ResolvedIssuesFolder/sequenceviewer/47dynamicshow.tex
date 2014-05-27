@@ -10,7 +10,7 @@ As described in the product backlog for this issue, the Sequenceviewer needs to 
 
 The varying number of pictograms to display, will be based on a setting provided by the application calling Sequenceviewer.
 
-This issue is solved by first using one of two GUI-components called GHorizontalScrollViewSnapper or GVerticalScrollViewSnapper. Horizontal is used for making landscape scrolling, and vertical for portrait. \note{collaboration with GUI}. Both screen-orientations are build the same way, so we will explain how it is made based on landscape-mode. 
+This issue is solved by first using one of two GComponents called GHorizontalScrollViewSnapper or GVerticalScrollViewSnapper. The collaboration with GComponents about creating these two components can be seen in section \ref{collaborationSnapper}. Horizontal is used for making landscape scrolling, and vertical for portrait. Both screen-orientations are build the same way, so we will explain how it is made based on landscape-mode. 
 
 When Sequenceviewer is called, it launches the onCreate-method together with activity$\_$main.xml. In the onCreate-method a condition checks whether the calling application has requested landscape or portrait, see listing \ref{lst:landscapeDynamic}. In the case of landscape-mode, the layout in landscape$\_$mode.xml is inflated into activity$\_$main.xml. landscape$\_$mode.xml contains the GUI components regarding buttons, images and text for the Sequenceviewer. The onCreate-method sets up the colors from GUI-components using setColors(). Now the ScrollView for landscape$\_$mode is created by instantiating a new HorizontallyScroll view. HorizontallyScroll takes 5 paremeters:
 \begin{itemize}
@@ -79,7 +79,35 @@ The last thing we do, is to scale the layout-parameters of the ScrollView and ma
 	mainLayout.addView(pictoView);
 \end{lstlisting}
 
-The VerticallyScroll is made the same way, but here it is the height which is divided into section.
+The VerticallyScroll is made the same way, but here it is the height which is divided into section. In figure \ref{fig:portrait3pics} and \ref{fig:portrait5pics}, portrait-mode is displayed with two different settings. It scales the pictograms accordingly, and limiting the ScrollView when the pictograms are not filling the entire height.
 
-\note{indsæt billede af sequenceviewer GUI mht. scaling, måske 2 billeder for compare}
+\begin{figure}[h!]
+\centering
+\begin{minipage}{.45\textwidth}
+\centering
+\includegraphics[scale=0.1]{Pics/Sprint3/portrait3pics.png}
+\caption{A sequence displayed with 3 visible pictograms in portrait-mode}
+\label{fig:portrait3pics}
+\end{minipage}\hfill
+\begin{minipage}{.45\textwidth}
+\centering
+\includegraphics[scale=0.1]{Pics/Sprint3/portrait5pics.png}
+\caption{A sequence displayed with 5 visible pictograms in portrait-mode}
+\label{fig:portrait5pics}
+\end{minipage}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
