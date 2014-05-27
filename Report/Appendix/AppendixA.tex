@@ -6,7 +6,7 @@
 	1	& 	x	&	Syncronization with the Database		& 	Work together with the Database group to correctly link Sequence with the database - making extracting and saving images easier.	&	32 hours	\\\hline
 	2	& 	x	&	Updating a picture in sequence -$>$; no update in overview	&	When opdating a picture in sequence, the picture is not shown in the overview.	&	8 hours	\\\hline
 	3	& 		&	Cancel and replace action function	&	Being able to mark a pictogram cancelled. Futhermore being able to replace pictograms in a sequence.	&	12 hours \\\hline
-	4	& 		&	Home button pauses sequence -$>$ should destroy	 &	When pressing the home button on the tablet, it should destroy the application, and not pause it. For example it would be confusing, to open from paused state, instead of opening into the overview.	&	8 hours.	\\\hline
+	4	& 		&	Destroy Sekvens if minimized	 &	When pressing the home button on the tablet, it should destroy the application, and not pause it. For example it would be confusing, to open from paused state, instead of opening into the overview.	&	8 hours.	\\\hline
 	5	& 		&	Copying Sequences	&	Being able to copy sequences to other children incase of similar activities.	&	16 hours \\\hline
 	6	& 		&	Changing application name	&	Change the name from Zebra to something else.	&	1 hour	\\\hline
 	7	& 		&	Marked pictogram not highlighted		&	When the pictogram is clicked it does not highlight.	&	8 hours 	\\\hline
@@ -14,7 +14,7 @@
 	9	& 		&	Sequence does not look clickable		&	It is hard to see that you can click a sequence and choose to "open" it.	&	16 hours	\\\hline
 	10	& 		&	Changing a sequence name is not intuitive	&	When naming a sequence it is hard to see that you can click on the "space" to name it.	&	8 hours	\\\hline
 	11	& 		&	Analyzing TODOs in code	&	The TODO's are located in: Child (class), MainActivity and SequenceViewGroup - Note there can be several TODO's per file.		&	16 hours	\\\hline
-	12	& 		&	Add sequence button placement is not intuitive	&	The "+" sign is wrongly placed.	&	16 hours 	\\\hline
+	12	& 		&	Make add pictogram button placement intuitive	&	The "+" sign is wrongly placed.	&	16 hours 	\\\hline
 	13	& 		&	Resizing delete buttons on pictograms	&	The size of the deletebutton have to scale proportionally with the width of the PictogramView.	&	4 hours	\\\hline
 	14	& 	x	&	Import temporary pictures into Sequence	&	Right now, no pictures are visible in the program right now.	&	4 hours	\\\hline
 	15	& 		&	Original drag location flickers when rearranging	&	When dragging the location dragged from flickers when the animation is done. Comment from last semester: Seems to be depend on hardware. The old galaxy tab does not have this problem. Also seems to be worsened by rounded image corners.	&	32 hours 	\\\hline
@@ -31,7 +31,7 @@
 \begin{longtable} { | c | c | p{5cm} | p{5cm} | c | } 
 \hline
 	ID 	&	Iced	&	Issues	&	Description		&	 Es. hours \\\hline
-	21	& 	 	&	View-mode created	& 	Blur pictiures out of focus. Only full pictures(no half/auto adjust). Marker-choice: arrow or highlight, locked or dynamic position of marker. Possible settings for up to 7 pictograms.	&	128 hours	\\\hline
+	21	& 	 	&	Create view-mode	& 	Blur pictiures out of focus. Only full pictures(no half/auto adjust). Marker-choice: arrow or highlight, locked or dynamic position of marker. Possible settings for up to 7 pictograms.	&	128 hours	\\\hline
 	22	& 	x	&	Portrait mode	& 	The sequences should be viewable in portrait mode.	&	32 hours	\\\hline
 	23	& 	 	&	SequenceGrid needs to be dynamic	& 	Right now, SequenceGrid only allows 4 pictograms in the Grid.	&	8 hours	\\\hline
 	24	& 	 	&	Delete sequences	& 	Delete sequences requires database syncronization, with the LocalDB.	&	2 hours	\\\hline
@@ -44,7 +44,7 @@
 	31  & 	 	&	Rework sequenceTitle box to look editable	& 	If we can make it look clickable we can remove the button.	&	4 hours	\\\hline
 	32  & 	 	&	Display some temporary sequences in overview	& 	Since there is no database for sequences yet, we need to be able to display some temporary ones for development purposes	&	4 hours	\\\hline
 	33	&	& 	Nested Sequences	&	There is a need for nested sequences, similar to daily scheduel (self-explanatory)	& 	64 hours   \\\hline
-	34	&	&	Choices in Sequences		&	Implement sequences so that they can contain the option to make choices.	& 	16 hours  \\\hline
+	34	&	&	Implement choices in sequences		&	Implement sequences so that they can contain the option to make choices.	& 	16 hours  \\\hline
 	35	&	&	After adding pictograms to a sequence it should not go to the "sequenceActivity", it should go to "MainActivity"		&	After making a sequence, the application should load the overview, instead of loading the sequence in SequenceActivity.	& 	8 hours  \\\hline
 \caption{This is a list of the issues we had in our product backlog going into sprint 2}
 \label{tab:spr2_prodblog}
@@ -56,12 +56,12 @@
 	ID 	&	Iced	&	Issues	&	Description		&	 Es. hours \\\hline
 	36	& 	 	&	Create snap in SequenceActivity		& 	When you scroll, it should snap back to only showing full pictograms only	 & 4 hours \\\hline
 	37	& 	 	&	Create snap in SequenceGrid		& 	When you scroll, it should snap back to only showing full pictograms only.	 & 4 hours \\\hline
-	38	&		 &	Sequence placeholder 	 &		Create a pretty placeholder (and add number of pictograms) Linearlayout: imageview + textview			 &	2 hours\\\hline
-	39	&		 &	Choice placeholder		 &		Add a simple choice placeholder (write how many pictograms are in the choice) Linearlayout: imageview + textview			 &	2 hours \\\hline
-	40	&		& 	Create exit button for Sequence	 &		Currently not possible to exit application without using "back" button	 &	 1 hour		\\\hline
+	38	&		 &	Create nested sequence placeholder 	 &	Create a pretty placeholder (and add number of pictograms) Linearlayout: imageview + textview			 &	2 hours\\\hline
+	39	&		 &	Create choice placeholder &	Add a simple choice placeholder (write how many pictograms are in the choice) Linearlayout: imageview + textview	 &	2 hours \\\hline
+	40	&		 &	Create exit button for Sekvens	 &		Currently not possible to exit application without using "back" button	 &	 1 hour		\\\hline
 	41	&		 &	Refactor Activities		 &		Refactoring the entire MainActivity and SequenceActivity	 &	32 hours \\\hline
 	42	&		 &	Add preview Button		 &		Add a button calling sequenceviewer with the sequence we're editing		 & 1 hour	\\\hline
-	43	&		 &	Remove edit sequence name	 &	As the name suggest, remove the button as it clutters the UI		 &	0.5 hours \\\hline
+	43	&		 &	Remove sequence name button	 &	As the name suggest, remove the button as it clutters the UI		 &	0.5 hours \\\hline
 	44	&		 & 	Clean up submodules  &		Remove submodules we don't rely on anymore	 &	1 hour\\\hline
 	45	&		 &	Make the project Jenkins compatible		 &		Make sure Jenkins compiles correctly with Sekvens			 &	2 hours \\\hline
 	46	&		 &	improve user handling 		 &		Create dialogboxes to guide the user through the application		 &	4 hours \\\hline
@@ -76,7 +76,7 @@
 	49	&		 &	Sequenceviewer: highlighting with a outline.	 &	When the user choses a method of highlighting to be the a highlighting, it should directly show a outline for that sequence or pictogram.			 &	16 hours \\\hline
 	50	&		 &	Sequenceviewer: an arrow highlighting method	 &	The arrow should in a fixed position. So when the the pictogram is marked as "cancel/done", the pictograms move, but not the arrow.				 &	16 hours \\\hline
 	51	&		 &	Sequenceviewer: in settings dialog - choose what type of highlighting there should be		 &	Should it be an arrow or a highlighting method?	 &	2 hours \\\hline
-	52	&		 &	Sequenceviewer: Do not show half of a pictogram		 & 	The entire sequence should snap, so it is impossible to see half pictograms	 &	8 hours	\\\hline
+	52	&		 &	Sequenceviewer: show only whole pictograms		 & 	The entire sequence should snap, so it is impossible to see half pictograms	 &	8 hours	\\\hline
 	53	&		 &	Sequenceviewer: blur pictures out of focus		 &	When a user (child or guardian?) presses a pictogram, then blur the others out. This should be an alternative to highlighting and set in settings			 &	8 hours \\\hline
 \caption{This is a list of the issues we had in our product backlog regarding sequenceviewer going into sprint 3}
 \label{tab:spr3_sw_prodblog}
