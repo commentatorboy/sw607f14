@@ -1,0 +1,13 @@
+\begin{longtable} { | c | p{12cm} | c | } 
+\hline
+	ID 	&	Issues	&		 Es. hours \\\hline
+	57	&	Add settings	&	16 hours	\\\hline
+\caption{Issue ID 57}
+\label{tab:spr4_addsettings}
+\end{longtable}
+
+To manage customer requests to display sequences differently for children, a settingsActivity was created with two options: The orientation of the screen and how many pictograms to display at a time.
+
+The database had no support for saving settings. This forced us to implement the settings using Android's \ct{sharedPreferences} which is able to store preferences between user sessions \cite{sharedpreferences}. This means that while the preferences are persistant on the tablet they were altered, it is not synchronized with the database at any point.
+
+The settings are saved when the guardian closes the settingsActivity. They are uniquely saved for each child as the key used to save/fetch the settings includes the ID of the child, which from the database should be guaranteed unique. When needed, they can be loaded using Android's \ct{getSharedPreferences}. This is done when calling SequenceViewer, and the preferences are sent through an \ct{intent}.
