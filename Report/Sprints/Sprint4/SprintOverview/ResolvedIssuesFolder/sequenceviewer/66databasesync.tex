@@ -10,7 +10,7 @@ Even though section \ref{sec:database_planning} explains the collaboration about
 
 In \ct{MainActivity} we get the \ct{sequenceId} as intent from the application calling Sequenceviewer. We use this id to get the sequence from the database by using the helper created by the database-group. The database-group also created a library with models, which contains a sequence-class. We import their two classes, create an instance of the sequence-class and use the helper to get the sequence and pictograms from the database, according to the \ct{sequenceId}.
 
-\begin{lstlisting} [caption={}, label={lst:}]
+\begin{lstlisting} [caption={Importing functionality from database-group and fetching a sequence from the database}, label={lst:importDBfunc}]
 import dk.aau.cs.giraf.oasis.lib.Helper;
 import dk.aau.cs.giraf.oasis.lib.models.Sequence;
 ...
@@ -27,3 +27,57 @@ In the constructor of HorizontallyScroll and VerticallyScroll, we take as argume
 \item Livshistorier $/$ Tortoise
 \end{enumerate}
 
+The result of the collaboration in making the database-schema can be seen in appendix \ref{app:DBschema}. 
+
+Sekvens and Livshistorier share some similarities when using the database. They both store a Sequence as the schema defines it, both use Frames to store every pictogram/choice/nested-sequence, in the database. But the difference arises in how to use the Pictogram$\_$collection.
+
+Sekvens uses the database by only storing pictograms in the Pictogram$\_$collection, whenever they want to store a choice, e.g. multiple pictograms for only one section in a sequence. They store a single pictogram in the Frame by setting the pictogram$\_$id in the Frame. Sekvens stores a choice by setting the pictogram$\_$id in the Frame, to be the first pictogram in Pictogram$\_$collection, and storing all the choice pictograms in Pictogram$\_$collection.
+
+Livshistorier uses the database by always storing pictograms in Pictogram$\_$collection, a single pictogram or multiple. They allow the pictogram$\_$id in the Frame to be a placeholder for the pictogram they want to use when displaying a choice. This means that this pictogram$\_$id can become null.
+
+For Sekvens, we start off by looking into the Pictogram$\_$collection, if this collection contains no elements we know that it is a single pictogram, and we get that from the Frame. If the Pictogram$\_$collection contains more than 0 elements, we know that it is a choice, we therefore look in the Frame for the pictogram$\_$id, e.g. the placeholder for the choice. Last, we fetch all the desired pictograms for the choice from the database and store them for later display. The code can be seen in listing \ref{lst:DBsekvens}. The choiceFlag is used to attach an \ct{onClickListener}, refer issue 64 in table \ref{tab:spr4_SVdisplayChoice}.
+\begin{lstlisting} [caption={Fetching a sequence from Sekvens using the database}, label={lst:DBsekvens}]
+if(callerApp == 1) {
+	if(sequence.getFramesList().get(i).getPictogramList().size() == 0) {
+		pictogramId = sequence.getFramesList().get(i).getPictogramId();
+	}
+	else if(sequence.getFramesList().get(i).getPictogramList().size()>0){
+		choiceFlag = true;
+		if(sequence.getFramesList().get(i).getPictogramId() != 0) {
+			pictogramId = sequence.getFramesList().get(i).getPictogramId();
+		} else {
+			tempChoicePic = true;
+		}
+		for(int x = 0; x < sequence.getFramesList().get(i).getPictogramList().size(); x++) {
+			tempArray.add(sequence.getFramesList().get(i).getPictogramList().get(x).getId());
+		}
+		choiceMapping.put(i,tempArray);
+	}
+
+}
+\end{lstlisting}
+
+With Livshistorier, we look at the size of the Pictogram$\_$collection. If the size is 1, we know they want to display a single pictogram. If the size is larger than 1, we than they want to display a choice, and we set up the same functionality as with Sekvens. We then simply take out all the pictograms and store them for later display. The code can be seen in listing \ref{lst:DBtortoise}. Notice we only look at the pictogram$\_$id in the Frame, for the choice-placeholder pictogram.
+
+\begin{lstlisting} [caption={Fetching a sequence from Livshistorier using the database}, label={lst:DBtortoise}]
+else if(callerApp == 3) {
+	if(sequence.getFramesList().get(i).getPictogramList().size() == 1 ) {
+		pictogramId = sequence.getFramesList().get(i).getPictogramList().get(0).getId();
+	}
+	else if(sequence.getFramesList().get(i).getPictogramList().size() > 1) {
+		choiceFlag = true;
+		if(sequence.getFramesList().get(i).getPictogramId() != 0) {
+			pictogramId = sequence.getFramesList().get(i).getPictogramId();
+		} 
+		else {
+			tempChoicePic = true;
+		}
+		for(int x = 0; x < sequence.getFramesList().get(i).getPictogramList().size(); x++) {
+			tempArray.add(sequence.getFramesList().get(i).getPictogramList().get(x).getId());
+		}
+		choiceMapping.put(i,tempArray);
+	}
+}
+\end{lstlisting}
+
+The functionality for fetching and displaying nested sequences has not been resolved. The database-schema contains a nested$\_$sequence$\_$id in the Frame-table, it just has to be fetched when it is possible to display it.
