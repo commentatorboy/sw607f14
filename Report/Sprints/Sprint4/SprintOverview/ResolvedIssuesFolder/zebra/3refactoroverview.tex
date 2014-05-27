@@ -10,7 +10,25 @@
 
 Although some refactoring was done during the first sprint, MainActivity and SequenceActivity was originally messy. Having altered the code and added new features made it even worse, since it was coded on top of the mess. Essentially the code was structured poorly; methods grew large, code was duplicated and the code was full of leftovers from both this and the previous semester. To fix this, both activities had a full makeover.
 
-One of the worst cases was the \ct{onCreate} methods from both activities. These are the entry points of the activities. Even after reworking the code as much as possible, onCreate was a few hundred lines of code in both activities. At the end of the refactoring, they were boiled down into smaller methods describing exactly what happens when the activity is launched. This made the code feel cleaner, and it became easier to work with. \note{insert example of before/after}
+One of the worst cases was the \ct{onCreate} methods from both activities. These are the entry points of the activities. Even after reworking the code as much as possible, onCreate was a few hundred lines of code in both activities. At the end of the refactoring, they were boiled down into smaller methods describing exactly what happens when the activity is launched. This made the code feel cleaner, and it became easier to work with. An example for SequenceActivity can be seen in \ref{lst:oncreateafter}. Before, code with no apparent correlation was ordered randomly into the \ct{onCreate} method. In the improved version everything has been sorted and relocated into relevant methods with self-explaining names.
+
+\begin{lstlisting} [caption={The onCreate of SequenceActivity after refactoring}, label={lst:oncreateafter}]
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_sequence);
+	
+    //Make Activity killable
+    activityToKill = this;
+
+    loadIntents();
+    loadProfiles();
+    loadSequence();
+    setColors();
+    setupFramesGrid();
+    setupButtons();
+    setupTopBar();
+}
+\end{lstlisting}
 
 Along with splitting the code into relevant methods, a few cases of gathering code also happened. For example in SequenceActivity, the creation of buttons were split; Some were created and handled directly in \ct{onCreate} while some had a method created for them. These were gathered into one method called \ct{setupButtons} which handled everything related to buttons. Another example was \ct{updateSequences} and \ct{loadSequences} which functionality overlapped to a degree where they were just put together.
 
