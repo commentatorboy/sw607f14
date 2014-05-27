@@ -3,6 +3,7 @@
 	ID 	&	Issues	&		 Es. hours \\\hline
 	41	&	Refactor Activities	&	32 hours	\\\hline
 	44	&	Clean up submodules &	1 hour	\\\hline
+	54	&	General bugfixes	&	4 hours \\\hline
 \caption{Issue ID 41 and 44}
 \label{tab:spr4_refactoroverview}
 \end{longtable}
@@ -16,5 +17,7 @@ Along with splitting the code into relevant methods, a few cases of gathering co
 The refactor also included creating proper comments for the code. At the beginning of the semester there was very few comments in the main activities. Since the code was already messy, this made it hard to figure out what was going on. In spite of the refactoring, it was decided to make sure that everything was well-explained anyway. It would have been a good idea to do this to the entire code-base, but due to a lack of time, this was not possible.
 
 Lastly, variables and method names were renamed to make them more intuitive and reflect exactly what happened within them. This was especially relevant due to the refactoring which slightly changed the functionality of some methods.
+
+During the project a few bugs had appeared along with new features. Since we were looking the code thoroughly through, it was logical to fix these at the same time. Examples of such fixes was a crash if no pictures was returned from PictoSearch, an adapter for choices not forgetting the previous choice displayed in it and a leaked dialog box that was not closed properly.
 
 Related to the refactoring, submodules were cleaned up at the same time. From the beginning of the project, Sekvens had several seemingly unused projects as submodules. At this point we were fairly sure that they were in fact not used. As such, PictoSearch, Ambilwarna and CategoryLib were removed as submodules. Through testing, everything was still functional. Why they were there to begin with is unknown. Removing these submodules helped clean up the code we had to manage, as any errors present in their applications would be displayed in our code editor.
