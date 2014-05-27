@@ -1,0 +1,9 @@
+\begin{longtable} { | c | p{12cm} | c | } 
+\hline
+	ID 	&	Issues	&		 Es. hours \\\hline
+	30 	&	Refactor overview	&	32 hours \\\hline
+\caption{Issue ID 30}
+\label{tab:spr2_refactoroverview}
+\end{longtable}
+
+In continuation of removing the child list, \ref{spr2_removechildlist}, Sekvens needed to be setup to take the ID of a child and a guardian from the Launcher. As a child could no longer be chosen from within Sekvens, the application would have to be opened from Launcher from this point. The functionality was implemented by receiving the from Launcher sent intent, and parsing the extras into two ID's. A \ct{currentGuardianID} and a \ct{currentChildID}. The (from database) child matching the \ct{currentChildID} would be the profile that Sekvens should load and manage sequences for.
