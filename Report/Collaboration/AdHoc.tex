@@ -9,8 +9,9 @@ In GIRAF LivsHistorier and Sekvens are really similar. The only difference betwe
 \item The settings should be saved for each child.
 \end{itemize}
 
-The biggest cases of shared code was LivsHistorier needed a prober way create sequences. They borrowed code such as \ct{SequenceViewGroup}, 
-to make it easy for the customers in a such way that they similar ways of creating sequences instead of 2 widely different methods\note{Nogle bedre formulering her???? eeeh???}. Near the end of sprint 4 the costumers really enjoyed a feature in LivsHistorier that enabled the customer to send sequences to emails in order for the to print the sequence. This was ported to Sekvens as per customer request.
+The biggest cases of shared code happened when Livshistorier needed a proper way create sequences. This resulted in borrowed code from Sekvens such as the \ct{SequenceViewGroup}. This method is responsible for everything related to displaying a sequence being edited along with listeners to replace, delete and move pictograms.
+
+Using the same code across applications makes it more user friendly. The user will only have to learn one way of editing sequences/lifestories rather than remembering two distinct ways. Near the end of sprint 4 the costumers really enjoyed a feature in LivsHistorier that enabled the customer to send sequences to emails in order for the to print the sequence. This was ported to Sekvens as per customer request.
 
 \paragraph{GComponents}
 Since it was decided to share common GUI components, most graphical components in Sekvens had to be changed. Using the components from the GComponents group was made very intuitive, and we were mostly able to use them without problem. Sometimes however, we could not resolve either how to use a component properly, or how to give a component a certain functionality. This resulted in several cases where we lent one of their team members to provide assistance, or alternatively cases where new functionality had to be added to the GComponents.  Furthermore, since this group did not use its own components, other than for testing, a few errors was caught via the Sekvens application, and corrected by the GComponents group.\newline
