@@ -8,49 +8,48 @@
 \label{tab:spr2_GUIchange}
 \end{longtable}
 
-One of the biggest changes from sprint 1 is the entire UI is fitted to match the entire application. This means changing every single button and grid to the templates the GUI group provided. As there is a lot of GUI to change, we have chosen to just describe two examples. The first example of the completely customizable dialog box is shown in listing \ref{lst:GDialog} and shown in figure \ref{fig:GDialog}. We use this several times throughout the application, we use it when editing sequences as a guardian. The example shown is when the guardian tries to exit editing a sequence without having saved. Each button is linked to a XML file determining where the button is displayed in the layout as well as what the headline and description says.
+One of the biggest changes from sprint 1 is for the GUI in Sekvens to match the overall theme of GIRAF. This meant changing every single button and grid to the templates GComponents provided. There was a lot of GUI to change, and because of this we chose to just describe three examples. The first example of one of the completely customizable dialog boxes is shown in listing \ref{lst:GDialog} and displayed in figure \ref{fig:GDialog}. The example shown is when the guardian tries to exit editing a sequence without having saved. Each button is linked to an XML file determining where the button is displayed in the layout as well as what the headline and description says.
 
 \begin{lstlisting} [caption={Customizable Dialogbox}, label={lst:GDialog}]
 
-    public class backDialog extends GDialog {
+public class backDialog extends GDialog {
 
-        public backDialog(Context context) {
+    public backDialog(Context context) {
 
-            super(context);
+        super(context);
 
-            this.SetView(LayoutInflater.from(this.getContext()).inflate(R.layout.exit_sequence_dialog,null));
+        this.SetView(LayoutInflater.from(this.getContext()).inflate(R.layout.exit_sequence_dialog,null));
 
-            GButton saveChanges = (GButton) findViewById(R.id.save_changes);
-            GButton discardChanges = (GButton) findViewById(R.id.discard_changes);
-            GButton returntoEditting = (GButton) findViewById(R.id.return_to_editing);
+        GButton saveChanges = (GButton) findViewById(R.id.save_changes);
+        GButton discardChanges = (GButton) findViewById(R.id.discard_changes);
+        GButton returntoEditting = (GButton) findViewById(R.id.return_to_editing);
 
 
-            saveChanges.setOnClickListener(new GButton.OnClickListener() {
+        saveChanges.setOnClickListener(new GButton.OnClickListener() {
 
-                @Override
-                public void onClick(View v) {
-                    SequenceActivity.this.saveChanges();
-                }
-            });
+            @Override
+            public void onClick(View v) {
+                SequenceActivity.this.saveChanges();
+            }
+        });
 
-            discardChanges.setOnClickListener(new GButton.OnClickListener() {
+        discardChanges.setOnClickListener(new GButton.OnClickListener() {
 
-                @Override
-                public void onClick(View v) {
-                    finish();
-                }
-            });
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
-            returntoEditting.setOnClickListener(new GButton.OnClickListener() {
+        returntoEditting.setOnClickListener(new GButton.OnClickListener() {
 
-                @Override
-                public void onClick(View v) {
-                    dismiss();
-                }
-            });
-        }
-
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
     }
+}
 \end{lstlisting}
 
 \begin{figure} [h!]
@@ -60,25 +59,26 @@ One of the biggest changes from sprint 1 is the entire UI is fitted to match the
 \label{fig:GDialog}
 \end{figure}
 
-The GUI group also provided a list of simple templates e.g. a 2 button dialogmessage. The example shown in \ref{lst:GDialogmessage} is the delete button shown in the overview. The constructor needs the context, an image, a headlline, a description and a functionality for one of the buttons. The second button added in the dialog box is a button that closes the dialog box and returns to the previous state.
+The GComponents group also provided a list of simple templates e.g. a 2 button \ct{GDialogMessage}. The example shown in \ref{lst:GDialogmessage} is the delete button shown in the overview. The constructor needs the context, an image, a title, a description and a functionality for one of the buttons. The second button added in the dialog box is a button that closes the dialog and returns to the previous state.
 
 \begin{lstlisting}  [caption={GDialogmessage}, label={lst:GDialogmessage}]
 
-    public void deleteSequenceDialog (View v) {
-        GDialogMessage deleteSequence = new GDialogMessage(v.getContext(),
-            R.drawable.ic_launcher,
-            "Slet Sekvens",
-            "Du er ved at slette sekvensen, er du sikker paa du vil det?",
-            new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-			deleteSequence();
-                }
-            });
+public void deleteSequenceDialog (View v) {
+    GDialogMessage deleteSequence = new GDialogMessage(v.getContext(),
+    R.drawable.ic_launcher,
+    "Slet Sekvens",
+    "Du er ved at slette sekvensen, er du sikker paa du vil det?",
+    new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            deleteSequence();
+        }
+    });
+}
 
 \end{lstlisting}
 
-The GComponents group also provided an easy implementation of the buttons. They provided an extension, \ct{GButton} of the android standard \ct{Button}. The implementation was simply refactoring every button to be an instance of GButton instead of Button. A couple of examples are shown in figure \ref{fig:buttons}. In the same vein they provided \ct{GGridView} as an extension to the android standard \ct{GridView}, and example of this is show in \ref{fig:GGridView}.
+The GComponents group also provided an easy implementation of the buttons. They provided an extension, \ct{GButton} of the Android \ct{Button}. The implementation was simply refactoring every button to be an instance of GButton instead of Button. A couple of examples are shown in figure \ref{fig:buttons}. In the same vein they provided \ct{GGridView} as an extension to the Android \ct{GridView}. An example of this is show in \ref{fig:GGridView}.
 
 \begin{figure} [h!]
 \centering
@@ -90,7 +90,7 @@ The GComponents group also provided an easy implementation of the buttons. They 
 \begin{figure} [h!]
 \centering
 \includegraphics[width=0.9\textwidth]{Pics/Sprint2/dialogs/magicGrid.png}
-\caption{This is the grid in mainActivity of a child with 4 different sequences attached}
+\caption{This is the grid in MainActivity of a child with 4 sequences attached}
 \label{fig:GGridView}
 \end{figure}
 

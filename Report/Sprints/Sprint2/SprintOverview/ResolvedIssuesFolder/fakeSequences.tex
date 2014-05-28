@@ -6,39 +6,39 @@
 \label{tab:spr2_fakesequences}
 \end{longtable}
 
-This issue was made because the LocalDB was not working. Not having any sequences in the application caused a problem where we were not able to access some parts. Since that the application has its own model of Sequences, it was possible to resolve this by creating temporary sequences to display while working with the application. The code for creating fake sequences is shown in \ref{lst:fakeseq}
+This issue was made because OasisLib were not handling sequences. Not having any sequences in the application caused a problem where we were not able to access some parts of the application at runtime. Since that the application has its own model of sequences, it was possible to resolve this by creating temporary sequences to display while working with the application. The code for creating fake sequences is shown in \ref{lst:fakeseq}
 
-\begin{lstlisting} [caption={The code in the example the code used to create fake sequences}, label={lst:fakeseq}]
+\begin{lstlisting} [caption={The code in the example is the code used to create fake sequences}, label={lst:fakeseq}]
 
-	private void loadSequences() {
-        //TODO createFakeSequences is a temporary fix to generate some Sequences
-	    List<Sequence> list; // = SequenceFileStore.getSequences(this, selectedChild);
-		list = createFakeSequences();
-        selectedChild.setSequences(list);
-	}
+private void loadSequences() {
+    //TODO createFakeSequences is a temporary fix to generate some Sequences
+    List<Sequence> list; // = SequenceFileStore.getSequences(this, selectedChild);
+    list = createFakeSequences();
+    selectedChild.setSequences(list);
+}
 
-    private List<Sequence> createFakeSequences() {
+private List<Sequence> createFakeSequences() {
 
-        Sequence s = new Sequence();
-        s.setTitle("TEST SEQUENCE");
-        s.setImageId(10);
-        s.setSequenceId(5);
+    Sequence s = new Sequence();
+    s.setTitle("TEST SEQUENCE");
+    s.setImageId(10);
+    s.setSequenceId(5);
 
-        Pictogram a = new Pictogram();
-        Pictogram b = new Pictogram();
-        Pictogram c = new Pictogram();
-        a.setPictogramId(0);
-        b.setPictogramId(1);
-        c.setPictogramId(2);
-        s.addPictogramAtEnd(a);
-        s.addPictogramAtEnd(b);
-        s.addPictogramAtEnd(c);
+    Pictogram a = new Pictogram();
+    Pictogram b = new Pictogram();
+    Pictogram c = new Pictogram();
+    a.setPictogramId(0);
+    b.setPictogramId(1);
+    c.setPictogramId(2);
+    s.addPictogramAtEnd(a);
+    s.addPictogramAtEnd(b);
+    s.addPictogramAtEnd(c);
 
-        List <Sequence> list = sequences;
-        for (int i = 0; i < 12; i++) {
-            list.add(s);
-        }
-        return list;
+    List <Sequence> list = sequences;
+    for (int i = 0; i < 12; i++) {
+        list.add(s);
     }
+    return list;
+}
 
 \end{lstlisting}
