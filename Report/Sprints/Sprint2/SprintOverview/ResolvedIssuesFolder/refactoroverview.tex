@@ -6,7 +6,7 @@
 \label{tab:spr2_refactoroverview}
 \end{longtable}
 
-In continuation of removing the child list, \ref{tab:spr2_removechildlist}, Sekvens needed to be setup to take the ID of a child and a guardian from the Launcher. As a child could no longer be chosen from within Sekvens, the application would have to be opened from Launcher from this point. The functionality was implemented by receiving the from Launcher sent intent, and parsing the extras into two ID's. A \ct{currentGuardianID} and a \ct{currentChildID}. The (from database) child matching the \ct{currentChildID} would be the profile that Sekvens should load and manage sequences for.
+In continuation of removing the child list (see table \ref{tab:spr2_removechildlist}) Sekvens needed to be setup to take the ID of a child and a guardian from the Launcher. As a child could no longer be chosen from within Sekvens, the application would have to be opened from Launcher from this point on. The functionality was implemented by receiving the intent sent from the launcher, and parsing the extras into two locally saved ID's -\ct{currentGuardianID} and a \ct{currentChildID}. The child in the database matching the \ct{currentChildID} would be the profile that Sekvens should load and manage sequences for.
 
 \begin{lstlisting}[caption={A small code example of fetching the intents from Launcher}, label={lst:fetchIntent}]
     

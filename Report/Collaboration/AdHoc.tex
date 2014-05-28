@@ -2,39 +2,40 @@
 Apart from the the major collaborations, Sekvens was in a unique position where we had a lot of dependencies. As a result, our work often overlapped with the work of other groups. Below is described ad-hoc activities that took place on a day-to-day basis.
 
 \paragraph{Livshistorier} 
-In GIRAF LivsHistorier and Sekvens are really similar. The only difference between the two is that LivsHistorier is meant to be used as a collaboration between the child and the guardian. As they were so similar we decided to hold meetings to talk about shared features. The two major topics of conversation were the database for sequences (see section \ref{sec:database_planning}) and the joint viewing tool (see section \ref{sec:sequenceviewer}). Aside from these some minor points were also agreed upon, these were as following:
+In GIRAF Livshistorier and Sekvens are very similar. The only difference between the two is that Livshistorier is meant to be used as a collaboration between the child and the guardian. The applications were so similar that we decided to hold meetings to talk about shared features. The two major topics of conversation were the database for sequences (see section \ref{sec:database_planning}) and the joint viewing tool (see section \ref{sec:sequenceviewer}). Aside from these some minor points were also agreed upon, these were as following:
 
 \begin{itemize}
-\item We should share our codes because most of sequences functionality can be used in Life-stories.
+\item We should share our codes because most of sequences functionality can be used in Livshistorier.
 \item The settings should be saved for each child.
 \end{itemize}
 
-The biggest cases of shared code happened when Livshistorier needed a proper way create sequences. This resulted in borrowed code from Sekvens such as the \ct{SequenceViewGroup}. This method is responsible for everything related to displaying a sequence being edited along with listeners to replace, delete and move pictograms.
+The biggest cases of shared code happened when Livshistorier needed a proper way to create sequences. This resulted in borrowed code from Sekvens such as the \ct{SequenceViewGroup}. This method is responsible for everything related to displaying a sequence being edited along with listeners to replace, delete and move pictograms.
 
-Using the same code across applications makes it more user friendly. The user will only have to learn one way of editing sequences/lifestories rather than remembering two distinct ways. Near the end of sprint 4 the costumers really enjoyed a feature in LivsHistorier that enabled the customer to send sequences to emails in order for the to print the sequence. This was ported to Sekvens as per customer request.
+Using the same code across applications makes it more user friendly. The user will only have to learn one way of editing sequences/lifestories rather than remembering two distinct ways. Near the end of sprint 4 the costumers really enjoyed a feature in Livshistorier that enabled the customer to send sequences as emails in order for them to print the sequence. This was ported to Sekvens as per request from the customer.
 
 \paragraph{GComponents}
-Since it was decided to share common GUI components, most graphical components in Sekvens had to be changed. Using the components from the GComponents group was made very intuitive, and we were mostly able to use them without problem. Sometimes however, we could not resolve either how to use a component properly, or how to give a component a certain functionality. This resulted in several cases where we lent one of their team members to provide assistance, or alternatively cases where new functionality had to be added to the GComponents.  Furthermore, since this group did not use its own components, other than for testing, a few errors was caught via the Sekvens application, and corrected by the GComponents group.\newline
+Since it was decided to share common GUI components, most graphical components in Sekvens had to be changed. Using the components from the GComponents group was made very intuitive, and we were mostly able to use them without problem. Sometimes however, we could not resolve either how to use a component properly, or how to give a component a certain functionality. This resulted in several cases where we lent one of their team members to provide assistance, or alternatively cases where new functionality had to be added to the GComponents. Furthermore, since this group did not use its own components, other than for testing, a few errors was caught in the Sekvens application, and corrected by the GComponents group.\newline
 \newline
-\label{collaborationSnapper}During sprint 3, two formal request were made to the GComponents group. Sequenceviewer needed a snapping-effect for a ScrollView and a HorizontalScrollview. We talked to a member of the GComponents group about what we needed, and since nothing like it existing, two issues were added to their redmine-page. \newline
+\label{collaborationSnapper}During sprint 3, two formal request were made to the GComponents group. Sequenceviewer needed a snapping-effect for a ScrollView and a HorizontalScrollview. We talked to a member of the GComponents group about what we needed, and since nothing like it existed, two issues were added to their redmine-page. (See table \ref{tab:GUIreq}. \newline
 
 \begin{tabular}{| l | l |}
   \hline                       
 [REQUEST] From 607 (Zebra) & [REQ] GHorizontalScrollViewSnapper: Create component \\ \hline
 [REQUEST] From 607 (Zebra) & [REQ] GVerticalScrollViewSnapper: Create Component \\
   \hline  
+  \label{tab:GUIreq}
 \end{tabular}
 
 \paragraph{OasisLib}
 Ad-hoc activities were also done with the OasisLib, assisting in both using their classes properly and providing new functionality on request. Given that Sekvens uses OasisLib for everything database and model related to sequences, these run-ins occured often. As with the GComponents, our position meant that several bugs were discovered and later corrected by OasisLib.
 
 \paragraph{GIRAF}
-Sekvens was initially designed as a stand-alone application. In spite of the existing Launcher project, Sekvens was not set up to use it. The idea was that Sekvens should be opened from the Launcher, sending two ID's that Sekvens would then depend on (For the Guardian/Child launching the application). This was set up during the second sprint, but also caused some issues. Like Sekvens, Launcher was dependent on other projects that would fail from time to time, consequently also affecting Sekvens. Launcher itself also received a few changes that sometimes broke.
+Sekvens was initially designed as a stand-alone application. In spite of the existing Launcher project, Sekvens was not set up to use it. The idea was that Sekvens should be opened from the Launcher, sending two ID's that Sekvens would then depend on (For the Guardian/Child launching the application). This was set up during the second sprint, but also caused some issues. Just like Sekvens, Launcher was dependent on other projects that would fail from time to time, consequently also affecting Sekvens. Launcher itself also received a few changes that sometimes broke.
 
-Other than dependency issues, Launcher implemented the functionality of changing settings from within the Launcher. Some minor collaboration went into making Sekvens' settings work with the Launcher.
+Other than dependency issues, Launcher implemented the functionality of changing settings from within the Launcher. Some minor collaboration went into making Sekvens settings work with the Launcher.
 
 \paragraph{PictoSearch}
-To get pictures for the sequences in Sekvens, we had a dependency for the PictoSearch application. It was our experience that the responsible group were not present very often, neither for meetings or during the usual work hours. Unfortunately this caused some problems in that the application at all times were several revisions behind on their database (OasisLib) dependencies. Other applications like Sekvens and Launcher however updated to the newest versions whenever available. Effectively, this meant that in the best case it was not possible to get pictures through PictoSearch, as the program did not match the desired version of OasisLib. In many revisions it would just crash.
+To get pictures for the sequences in Sekvens, we had a dependency for the PictoSearch application. It was our experience that the responsible group were not present very often, neither for status meetings or during the usual work hours. Unfortunately this caused some problems in that the application at all times were several revisions behind on their database (OasisLib) dependencies. Other applications like Sekvens and Launcher however updated to the newest versions whenever available. Effectively, this meant that in the best case it was not possible to get pictures through PictoSearch, as the program did not match the desired version of OasisLib. In many revisions it would just crash.
 
 Due to the lack of presence from the responsible group, it was not possible to collaborate properly, and a working version was never created from their side.
 
