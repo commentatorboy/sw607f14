@@ -6,9 +6,9 @@
 \label{tab:spr4_SVplaypausestopsound}
 \end{longtable}
 
-This issue comes from the general specification requirements, see appendix \ref{app:reqgroup1}. Additionally, it is a requirement from the Parrot-group to be able to play sound, otherwise their application would not have any use of Sequenceviewer.
+This issue comes from the general specification requirements, see appendix \ref{app:reqgroup1}. Additionally, it is a requirement from the PiktoOplæser group to be able to play sound, otherwise their application would not have any use of Sequenceviewer.
 
-The functionality for playing sound has already been developed by the Parrot-group together with the PictoCreator-group. They created a library in the pictogram-lib project, which holds the functionality. Therefore, Sequenceviewer uses this library to play and stop sound. There was no request from the customers for pause, neither did any of the other two groups implement the functionality.
+The functionality for playing sound has already been developed by the PiktoOplæser group together with the PictoCreator group. They created a library in the pictogram-lib project, which holds the functionality. Therefore, Sequenceviewer uses this library to play and stop sound. There was no request from the customers for pause, neither did any of the other two groups implement the functionality.
 
 To use the library, we implemented three methods: \ct{onClickPlaySound(), playNext(), and soundDonePlaying()}. We use a list of byte-array to hold the sound for each pictogram in a sequence. That makes it possible to iterate over the pictograms in a sequence, and display they attached sound accordingly. This happens by instantiating a version of a PictoMediaPlayer from the pictogram-lib, as well as implementing the CompleteListener, which tells the PictoMediaPlayer when a pictogram is done playing the attached sound. These initiating parts can be seen in listing \ref{lst:pictomediaplayer}.
 
@@ -48,7 +48,7 @@ We start off by setting up buttons for playing and stopping sound. This is done 
         });
 \end{lstlisting}
 
-Now the pictoMediaPlayer goes through the sequence and playing the sound attached to the pictogram. This happens by initiating the playSound by starting \ct{onClickPlaySound()}, which sets the customListener to the current pictoMediaPlayer. It then calls \ct{playNext}, which set the datasource of the pictoMediaPlayer to be the first sound-element to be played in \ct{soundToPlay}. It plays the sound and increments the index pointer. Once the sound is done playing, \ct{soundDonePlaying} calls \ct{playNext()} again, and if the index within the number of \ct{soundToPlay} it continues, until this does not hold. The code for these three methods can be seen in listing \ref{lst:soundplaymethods}.
+Now the pictoMediaPlayer goes through the sequence and playing the sound attached to the pictogram. This happens by initiating the playSound by starting \ct{onClickPlaySound()}, which sets the customListener to the current pictoMediaPlayer. It then calls \ct{playNext}, which set the datasource of the pictoMediaPlayer to be the first sound element to be played in \ct{soundToPlay}. It plays the sound and increments the index pointer. Once the sound is done playing, \ct{soundDonePlaying} calls \ct{playNext()} again, and if the index within the number of \ct{soundToPlay} it continues, until this does not hold. The code for these three methods can be seen in listing \ref{lst:soundplaymethods}.
 
 \begin{lstlisting} [caption={The three methods associated with playing sound in Sequenceviewer}, label={lst:soundplaymethods}]
     private void playNext(){
